@@ -10,22 +10,65 @@ import FormControl from 'react-bootstrap/FormControl'
 import 'react-toastify/dist/ReactToastify.css';
 import Container from 'react-bootstrap/Container';
 import {useHistory} from "react-router-dom";
+import { Toast } from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
+// import Toast from '/Users/manal/Desktop/SEI/projects/Project-4/dressify/src/components/toast/Toast.jsx';
+import {createUseStyles} from 'react-jss'
 // toast.configure()
+import checkIcon from '/Users/manal/Desktop/SEI/projects/Project-4/dressify/src/assets/check.svg';
+import errorIcon from '/Users/manal/Desktop/SEI/projects/Project-4/dressify/src/assets/error.svg';
+import infoIcon from '/Users/manal/Desktop/SEI/projects/Project-4/dressify/src/assets/info.svg';
+import warningIcon from '/Users/manal/Desktop/SEI/projects/Project-4/dressify/src/assets/warning.svg';
+
+const useStyles = createUseStyles({
+  success:{
+    display: 'block',
+      width: 700, 
+     padding: 30,
+     position: "fixed",
+     top: "10px",
+    
+     backgroundColor: '#5cb85c',
+     icon: checkIcon,
+    
+     right: "10px",
+   
+     zIndex: 9999,
+     color: 'black',
+  
+  },
+  danger :{
+    display: 'block',
+      width: 700, 
+     padding: 30,
+     position: "fixed",
+     top: "10px",
+     right: "10px",
+     backgroundColor: '#d9534f',
+     backgroundImage: errorIcon,
+     zIndex: 9999,
+     color: 'black',
+  
+  }
+  })
+
+
 export default function Register() {
 
   const history = useHistory()
-
+  const classes = useStyles();
   //state 
   const [user , setUser]=useState({});
   
 
  const [flage , setFlage]= useState(false)
+
   const [success ,setSuccess] = useState(false)
+  // const [show, setShow] = useState(false);
   const [message ,setMessage] = useState("")
 
   
-
+  
   const userChangeHandler =  (e) => {
     let name = e.target.name
     let value = e.target.value
@@ -42,9 +85,7 @@ export default function Register() {
   setFlage(true)
   setMessage(data.data.message)
   setSuccess(true)
-  this.state = {email: '',
-password: ''};
-
+  console.log(data)
   setTimeout(()=> history.push('/login'),2000)
 }).catch(error =>{
   setMessage(error.response.data.message)
@@ -57,14 +98,14 @@ password: ''};
     return (
       <Container component="main" maxWidth="xs">
          { flage && 
-         ( success ? <ToastContainer severity="success">{message}</ToastContainer> : 
-       <ToastContainer severity="error">{message}</ToastContainer> )
+         ( success ? <Toast className={classes.success} severity="success" autoClose={5000}  >{message}</Toast> : 
+       <Toast className={classes.danger} severity="error">{message}</Toast> )
     } 
          
          
  
       <Form style={{position: "fixed"}} onSubmit={(e) => userOnsubmitHandler(e)}>
-        <Form.Group controlId="formBasicName" >
+        <Form.Group controlId="formBasicName1" >
         <Form.Label>Name</Form.Label>
         <FormControl 
         autoComplete="fname"
@@ -78,7 +119,7 @@ password: ''};
          onChange={(e)=>userChangeHandler(e)} />
         </Form.Group>
 
-      <Form.Group controlId="formBasicEmail" >
+      <Form.Group controlId="formBasicEmail1" >
         <Form.Label>Email address</Form.Label>
         <FormControl 
          variant="outlined"
@@ -94,15 +135,35 @@ password: ''};
         </Form.Text>
       </Form.Group>
     
-      <Form.Group controlId="formBasicPassword">
+      <Form.Group controlId="formBasicPassword1">
         <Form.Label>Password</Form.Label>
         <FormControl 
-        
-        type="password" placeholder="Password" onChange={(e)=>userChangeHandler(e)} />
+         variant="outlined"
+         margin="normal"
+         required
+         fullWidth
+         name="password"
+         label="Password"
+         type="password"
+         id="password"
+         autoComplete="current-password"
+       placeholder="Password" onChange={(e)=>userChangeHandler(e)} />
       </Form.Group>
       <Form.Group controlId="formGridAddress1">
     <Form.Label>Address</Form.Label>
-    <FormControl placeholder="1234 Main St" onChange={(e)=>userChangeHandler(e)} />
+    <FormControl placeholder="1234 Main St" 
+     variant="outlined"
+     margin="normal"
+     required
+     fullWidth
+     name="address"
+     label="address"
+     type="address"
+     id="address"
+     autoComplete="current-address"
+    
+    
+    onChange={(e)=>userChangeHandler(e)} />
   </Form.Group>
 
       <Button variant="primary" type="submit"  >

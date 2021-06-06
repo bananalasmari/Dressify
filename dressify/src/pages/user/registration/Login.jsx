@@ -22,7 +22,8 @@ export default function Login(props) {
   const OnsubmitHandler = (e)=>{
     e.preventDefault()
     console.log("click")
-    axios.post('http://localhost:4000/api/v1/user/login',{ "email" : user.email ,"password" :user.password })
+    console.log("user email: "+user.email +"password :"+ user.password)
+    axios.post('http://localhost:4000/api/v1/user/login',{ "email" : user.email ,"password" : user.password })
     .then( data =>{
       console.log(data)
       localStorage.setItem("token",data.data.token)
@@ -33,12 +34,23 @@ export default function Login(props) {
     })
        }
     return (
-      <Container component="main" maxWidth="xs" onSubmit ={(e) =>OnsubmitHandler(e)}>
-      <Form style={{position: "fixed"}} >
+      <Container component="main" maxWidth="xs" >
+      <Form style={{position: "fixed"}} onSubmit ={(e) =>OnsubmitHandler(e)}>
       <Form.Group controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <FormControl type="email" placeholder="Enter email" 
-         onChange = {(e)=>changeUserHandler(e)}/>
+         variant="outlined"
+         margin="normal"
+         required
+         fullWidth
+
+         onChange = {(e)=>changeUserHandler(e)}
+         
+         label="Email Address"
+         name="email"
+         autoComplete="email"
+         autoFocus
+         />
         <Form.Text className="text-muted">
           We'll never share your email with anyone else.
         </Form.Text>
@@ -46,7 +58,17 @@ export default function Login(props) {
     
       <Form.Group controlId="formBasicPassword"  >
         <Form.Label>Password</Form.Label>
-        <FormControl type="password" placeholder="Password" onChange = {(e)=>changeUserHandler(e) && HTMLInputElement} />
+        <FormControl type="password" placeholder="Password" 
+          variant="outlined"
+          margin="normal"
+          required
+          fullWidth
+          name="password"
+          label="Password"
+          type="password"
+          id="password"
+          autoComplete="current-password"
+        onChange = {(e)=>changeUserHandler(e)} />
       </Form.Group>
       <Form.Group controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Check me out" />
