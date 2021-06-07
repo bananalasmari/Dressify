@@ -5,7 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from './components/Navigation'
 import AllUsers from './components/allUsers'
 import Protect from './components/Protect';
-
+import ResetPassword from './components/ResetPassword'
+import NewPassword from './components/NewPassword'
 import {
   BrowserRouter  as Router ,
   Route,
@@ -56,6 +57,12 @@ console.log(user)
             <Route path="/signIn" component={Register} />
             <Route exact path="/allusers" 
  render={()=> <AllUsers /> } />
+ <Route path="/ResetPassword" component={ResetPassword} />
+
+ <Route exact path="/reset/:token">
+ <NewPassword/>
+ 
+ </Route>
           </Switch>
         </div>
       </div>

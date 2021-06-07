@@ -12,7 +12,7 @@ import axios from "axios"
 import {useHistory} from "react-router-dom"
 import Container from 'react-bootstrap/Container'
 
-export default function Login(props) {
+export default function ResetPassword() {
   const history = useHistory()
 
   const [user , setUser] = useState({})
@@ -22,14 +22,11 @@ export default function Login(props) {
   const OnsubmitHandler = (e)=>{
     e.preventDefault()
     console.log("click")
-    console.log("user email: "+user.email +"password :"+ user.password)
-    axios.post('http://localhost:4000/api/v1/user/login',{ "email" : user.email ,"password" : user.password })
+    console.log("user email: "+user.email )
+    axios.post('http://localhost:4000/api/v1/user/reset-password',{ "email" : user.email })
     .then( data =>{
       console.log(data)
-      localStorage.setItem("token",data.data.token)
-      localStorage.setItem("user",JSON.stringify(data.user))
-      
-      props.loginFunction()
+    
      history.push('/signIn')
     }).catch(err =>{
       console.log(err.response)
@@ -58,23 +55,7 @@ export default function Login(props) {
         </Form.Text>
       </Form.Group>
     
-      <Form.Group controlId="formBasicPassword"  >
-        <Form.Label>Password</Form.Label>
-        <FormControl type="password" placeholder="Password" 
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          name="password"
-          label="Password"
-          type="password"
-          id="password"
-          autoComplete="current-password"
-        onChange = {(e)=>changeUserHandler(e)} />
-      </Form.Group>
-      <Form.Group controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
+    
       <Button variant="primary" type="submit" >
         Submit
       </Button>

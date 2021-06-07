@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Container from 'react-bootstrap/Container';
 import {useHistory} from "react-router-dom";
 import { Toast } from 'react-bootstrap';
-import { ToastContainer, toast } from 'react-toastify';
+// import { ToastContainer, toast } from 'react-toastify';
 // import Toast from '/Users/manal/Desktop/SEI/projects/Project-4/dressify/src/components/toast/Toast.jsx';
 import {createUseStyles} from 'react-jss'
 // toast.configure()
@@ -78,7 +78,7 @@ export default function Register() {
    const userOnsubmitHandler = (e)=>{
      console.log("hhhii")
     e.preventDefault()
- axios.post('http://localhost:4000/api/v1/user/',{
+ axios.post('http://localhost:4000/api/v1/user/',{ 
   name : user.name , email : user.email , password : user.password , address : user.address
 }).then( data =>{
   console.log(data)

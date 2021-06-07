@@ -16,7 +16,7 @@ export default function Navigation() {
     <Nav className="mr-auto">
       <Nav.Link onClick = {()=> history.push('/login')}>Login</Nav.Link>
       <Nav.Link onClick = {()=> history.push('/signIn')}>Sign In</Nav.Link>
-
+      <Nav.Link onClick = {()=> history.push('/ResetPassword')}>Forget password</Nav.Link>
     </Nav>
    
   </Navbar.Collapse>
