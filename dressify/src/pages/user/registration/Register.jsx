@@ -15,10 +15,10 @@ import { Toast } from 'react-bootstrap';
 // import Toast from '/Users/manal/Desktop/SEI/projects/Project-4/dressify/src/components/toast/Toast.jsx';
 import {createUseStyles} from 'react-jss'
 // toast.configure()
-import checkIcon from '/Users/manal/Desktop/SEI/projects/Project-4/dressify/src/assets/check.svg';
-import errorIcon from '/Users/manal/Desktop/SEI/projects/Project-4/dressify/src/assets/error.svg';
-import infoIcon from '/Users/manal/Desktop/SEI/projects/Project-4/dressify/src/assets/info.svg';
-import warningIcon from '/Users/manal/Desktop/SEI/projects/Project-4/dressify/src/assets/warning.svg';
+import checkIcon from '../../../assets/check.svg';
+import errorIcon from '../../../assets/error.svg';
+import infoIcon from '../../../assets/info.svg';
+import warningIcon from '../../../assets/warning.svg';
 
 const useStyles = createUseStyles({
   success:{
