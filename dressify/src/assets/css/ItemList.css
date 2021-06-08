@@ -1,0 +1,27 @@
+
+
+.items-title {
+      margin-bottom: 8px;
+      font-size: 30px;
+      text-align: center;
+      font-weight: bold;
+  }
+
+  .b-widget--background {
+      background-color: #f3f3f3;
+      padding-top: 3rem;
+  }
+
+  .b-owl_carousel-image {
+      display: inline-block;
+      width: 150px;
+     
+  }
+
+  .carousel-control-prev-icon, .carousel-control-next, .carousel-indicators {
+        display: none;
+  }
+
+  .b-products-launch_image {
+      width: 100%;
+  }

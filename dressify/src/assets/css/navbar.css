@@ -1,0 +1,33 @@
+
+.logo {
+      margin-left: 53px;
+}
+
+
+.navbar {
+      position: relative;
+      background-color: #a87a63;
+}
+
+.navbar-brand {
+      display: inline-block;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-right: -2rem;
+      /* font-size: 1.25rem; */
+      line-height: inherit;
+      white-space: nowrap;
+}
+
+.navbar .active {
+      background-color: bisque;
+}
+
+.navbar-light .navbar-nav .nav-link {
+      color: rgb(255 255 255);
+  }
+
+  .btn-dark {
+   margin: 5px;
+  }
+ 
