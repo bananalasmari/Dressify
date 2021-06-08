@@ -27,11 +27,12 @@ export default function NewPassword() {
 
     console.log("click")
     console.log("password :"+ user.password)
-    axios.post('http://localhost:4000/api/v1/user/new-password',{ body:JSON.stringify({
+    axios.post('http://localhost:4000/api/v1/user/newPassword',{ body:JSON.stringify({
         "password" : user.password ,
         token
       })
     })
+    
    
     .then( data =>{
       console.log(data+ "hahahaha")
