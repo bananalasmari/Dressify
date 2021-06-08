@@ -27,12 +27,13 @@ export default function Login(props) {
     .then( data =>{
       console.log(data)
       localStorage.setItem("token",data.data.token)
-      localStorage.setItem("user",JSON.stringify(data.user))
+    
       
       props.loginFunction()
      history.push('/signIn')
+
     }).catch(err =>{
-      console.log(err.response)
+      console.log( err.response )
     })
        }
     return (
