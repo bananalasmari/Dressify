@@ -1,4 +1,4 @@
-import React , {useState} from 'react';
+import React , {useState } from 'react';
 // import { Col, Row, Button, Form, FormGroup, Label, Input } ;
 
 import Form from 'react-bootstrap/Form';
@@ -149,6 +149,8 @@ export default function Register() {
          autoComplete="current-password"
        placeholder="Password" onChange={(e)=>userChangeHandler(e)} />
       </Form.Group>
+
+      
       <Form.Group controlId="formGridAddress1">
     <Form.Label>Address</Form.Label>
     <FormControl placeholder="1234 Main St" 
@@ -170,6 +172,5 @@ export default function Register() {
         Submit
       </Button>
     </Form>
-    </Container>
-    )
-}
+    </Container> 
+    )}

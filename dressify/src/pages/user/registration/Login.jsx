@@ -30,7 +30,7 @@ export default function Login(props) {
     
       
       props.loginFunction()
-     history.push('/signIn')
+     history.push('/profile')
 
     }).catch(err =>{
       console.log( err.response )

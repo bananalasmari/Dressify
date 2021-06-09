@@ -25,6 +25,7 @@
     "react-jss": "^10.6.0",
     "react-jwt": "^1.1.2",
     "react-leaf-carousel": "^2.0.3",
+    "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-toastify": "^7.0.4",
@@ -55,5 +56,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "css-loader": "^5.2.6",
+    "style-loader": "^2.0.0"
   }
 }

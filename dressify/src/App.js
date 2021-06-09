@@ -19,10 +19,10 @@ import {
 } from "react-router-dom"
 
 import Login from './pages/user/registration/Login';
-import Register from './/pages/user/registration/Register';
+import Register from './pages/user/registration/Register';
 import { isExpired, decodeToken } from "react-jwt";
 import {useEffect, useState} from "react"
-
+import Profile from './pages/user/profile/Profile';
 
 
 function App() {
@@ -67,14 +67,17 @@ console.log(user)
  <Route path="/ResetPassword" component={ResetPassword} />
 
  <Route exact path="/reset/:token">
- <NewPassword/>
- 
- </Route>
-          </Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/Allitems/:id" component={ItemDetails} />
 
-      <Footer/>
+ <NewPassword/>
+ </Route>
+ <Route exact path="/" component={Home} />
+          <Route exact path="/Allitems/:id" component={ItemDetails} />
+ <Route component={Profile} path={"/profile"} isLogin ={isLogin} user ={user} loginFunction={loginFunction} />
+
+          </Switch>
+         
+
+      {/* <Footer/> */}
         </div>
       </div>
     </div></Router>

@@ -12,7 +12,7 @@ import axios from "axios"
 import {useHistory, useParams} from "react-router-dom"
 import Container from 'react-bootstrap/Container'
 
-export default function NewPassword() {
+export default function NewPassword(props) {
   const history = useHistory()
 
  
@@ -21,31 +21,39 @@ export default function NewPassword() {
   
    const {token} = useParams()
   console.log(token)
-  const changeUserHandler = ({target : {name , value}}) => setUser({...user , [name] : value})
+  const userChangeHandler =  (e) => {
+    let name = e.target.name
+    let value = e.target.value
+     setUser({...user , [name] :value })
+     console.log("hello")
+}
 
   const OnsubmitHandler = (e)=>{
-
+    e.preventDefault()
+    // const data ={
+    //    password : user.password. ,
+    //     token : this.props.match.params.token,
+    // }
+    console.log(token)
     console.log("click")
     console.log("password :"+ user.password)
-    axios.post('http://localhost:4000/api/v1/user/newPassword',{ body:JSON.stringify({
-        "password" : user.password ,
-        token
-      })
-    })
+    axios.post('http://localhost:4000/api/v1/user/reset/'+ token ,{ 
+        "password" : user.password })
     
-   
+    
     .then( data =>{
+    //  props.loginFunction()
       console.log(data+ "hahahaha")
  
      
-     history.push('/signIn')
+    //  history.push('/signIn')
     }).catch(err =>{
       console.log(err.response)
     })
        }
     return (
         <Container component="main" maxWidth="xs" >
-        <Form style={{position: "fixed"}} onSubmit ={(e) =>OnsubmitHandler(e)}>
+        <Form style={{position: "fixed"}} onSubmit ={(e) =>OnsubmitHandler(e)} >
         <Form.Group controlId="formBasicEmail">
           <Form.Label>update Password</Form.Label>
           <FormControl type="password" placeholder="Enter password" 
@@ -54,7 +62,7 @@ export default function NewPassword() {
            required
            fullWidth
   
-           onChange = {(e)=>changeUserHandler(e)}
+           onChange = {(e)=>userChangeHandler(e)}
            
            label="password"
            name="password"
@@ -66,7 +74,7 @@ export default function NewPassword() {
       
       
         <Button variant="primary" type="submit" >
-          Submit
+          Reset password
         </Button>
       </Form>
       </Container>
