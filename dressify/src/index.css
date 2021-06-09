@@ -8,6 +8,11 @@ body {
   background: transparent url(https://www.fendi.com/it/ck-static/vertigo_background_sx.svg) 0% 0% repeat padding-box;
 }
 
+
+html, body {
+  overflow-x: hidden;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -110,3 +115,7 @@ h2:after {
     right: 0;
     transition: all .3s ease-out;
 } */
+
+
+
+

@@ -10,20 +10,20 @@ const slideImages = [
 export default function Carousels () {
       return (
         <Carousel fade >
-        <Carousel.Item>
+        <Carousel.Item >
         {/* {slideImages.map(ele => <div className="d-block w-100">
             <div style={{'backgroundImage': `url(${ele})`}}>
             </div>
           </div> )} */}
 
-          <img
+          <img 
             className="d-block w-100" 
             src="https://media.gucci.com/content/HeroBigStandard_3200x1520/1621243804/HeroBigStandard_OUVERTURE-21-044_001_Default.jpg"
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3>BUY. SELL.</h3>
-            <p>Designer. Preloved. Vintage. Streetwear. Sneakers.</p>
+            <h3 data-aos="fade-up">BUY. SELL.</h3>
+            <p data-aos="fade-up">Designer. Preloved. Vintage. Streetwear. Sneakers.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
