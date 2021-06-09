@@ -41,7 +41,7 @@ export default function Navigation() {
                </Navbar.Collapse>
                <div class="d-flex w-100 order-0">
                   <div class="w-100">
-                     <a class="navbar-brand text-center w-100" href="#"><Navbar.Brand className="navbar-brand text-center w-100" classhref="/home"><img className="logo" style={{ width: 171, height: 90 }} src={logo} alt="Logo" /></Navbar.Brand>
+                     <a class="navbar-brand text-center w-100" href="/"><Navbar.Brand className="navbar-brand text-center w-100" classhref="/home"><img className="logo" style={{ width: 171, height: 90 }} src={logo} alt="Logo" /></Navbar.Brand>
                         <span class="w-100"></span></a>
                   </div>
                </div>

@@ -1,16 +1,19 @@
 import React from 'react'
-import "../../assets/css/ItemList.css"
+import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button';
+import Button from 'react-bootstrap/Button'
+import ListGroup from 'react-bootstrap/ListGroup'
+import '../../../assets/css/auth.css'
 
 
-export default function ItemCard() {
-      return (
-            <div className="container b-widget--background">
-                  <div className="items-title"  data-aos="zoom-out" style={{ paddingTop: 42.8, paddingBottom: 40.9}}> Recommended For You</div>
+export default function ItemDetails(props) {
+    
+    return (
+        <div className="container b-widget--background">
+                  <div className="items-title"  data-aos="zoom-out" style={{ paddingTop: 42.8, paddingBottom: 40.9}}> Clothing </div>
                   <div className="row">
                         <div className="col-lg-4 col-sm-6" data-aos="fade-up">
-                              <Card>
+                              <Card >
                                     <Card.Img variant="top" src="
                                    https://ounass-prod3.atgcdn.ae/small_light(dw=350,of=webp)/pub/media/catalog/product/2/1/214217820_black_in.jpg?1610642647.2564" />
                                     <Card.Body>
@@ -29,7 +32,7 @@ export default function ItemCard() {
                         </div>
 
                         <div className="col-md-4 col-sm-6" data-aos="fade-up">
-                              <Card>
+                              <Card >
                                     <Card.Img variant="top" src="
                                    https://ounass-prod3.atgcdn.ae/small_light(dw=440,of=webp)/pub/media/catalog/product/2/1/214375608_pink_in.jpg?1615969145.6825" />
                                     <Card.Body>
@@ -47,7 +50,7 @@ export default function ItemCard() {
                         </div>
 
                         <div className="col-lg-4 col-sm-6" data-aos="fade-up">
-                              <Card>
+                              <Card >
                                     <Card.Img variant="top" src="
                                     https://ounass-prod4.atgcdn.ae/small_light(dw=350,of=webp)/pub/media/catalog/product/2/1/214189659_lbl_in.jpg?1611161634.5771" />
                                     <Card.Body>
@@ -68,5 +71,5 @@ export default function ItemCard() {
             </div>
 
 
-      )
+    )
 }

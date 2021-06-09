@@ -31,3 +31,20 @@
    margin: 5px;
   }
  
+
+  @media all and (max-width: 991px) {
+
+      .logo {
+            margin: 0 auto;
+      }
+
+      .navbar-brand {
+        display: inline-block;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-right: 3.9rem !important;
+    
+    }
+    
+    
+    }
