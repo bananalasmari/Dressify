@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "../../assets/css/ItemList.css";
-import ItemCard2 from "../../components/itemDetails/ItemCard2";
-export default function DisplayItems() {
+import ItemCard3 from "../../../components/itemCards/ItemCard3";
+export default function ItemsSeller() {
   const [items, setItems] = useState([]);
-
+  // user/seller id
+  const id = localStorage.getItem("user_id")
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/items")
+      .get(`http://localhost:4000/api/items/seller/${id}`)
       .then((data) => {
         setItems(data.data);
       })
@@ -18,7 +18,7 @@ export default function DisplayItems() {
     <div className="container b-widget--background">
       <div className="row">
         {items.map((item) => (
-          <ItemCard2 item={item} />
+          <ItemCard3 item={item} />
         ))}
       </div>
     </div>
