@@ -35,6 +35,7 @@ export default function Login(props) {
         console.log(localStorage.getItem("user_id"))
         props.loginFunction();
         history.push("/signIn");
+        // localStorage.setItem("token",data.data.token)
       })
       .catch((err) => {
         console.log(err.response);
