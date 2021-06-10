@@ -48,17 +48,19 @@ export default function Navigation(props) {
                <span class="w-100"></span>
                <Button variant="dark" onClick={() => history.push('/signIn')}>SignUp</Button>
                {' '}
-               { !props.isLogin ?
-               <Button variant="outline-light" onClick={() => history.push('/login')}>Login</Button>
-           :
-           <Button variant="outline-light" onClick={() => history.push('/Profile')}>Profile</Button>
-           } 
 
+
+ { (!props.isLogin ?  <Button variant="outline-light" onClick={() => history.push('/login')} label="login" >Login</Button>:
+               
+               <Button  label="Profile" variant="outline-light" onClick={() => history.push('/profile')}>profile</Button>
+  )}
             </div>
 
 
          </Navbar>
-
+   
+      
+      
 
          {/* <Navbar className="navbar navbar-expand-lg " collapseOnSelect expand="lg">
             <span class="w-100"></span>
@@ -85,6 +87,6 @@ export default function Navigation(props) {
          </Navbar> */}
 
       </div>
-   )
-}
 
+);
+} 

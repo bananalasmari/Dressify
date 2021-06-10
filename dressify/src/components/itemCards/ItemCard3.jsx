@@ -13,7 +13,7 @@ export default function ItemCard3(props) {
 
   const history = useHistory();
   const onClickEdit = () => {
-    history.push(`/SellerItems/${props.item._id}`);
+    history.push(`/EditItem/${props.item._id}`);
   };
   const onClickDelete = () =>  {
     axios

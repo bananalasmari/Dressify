@@ -10,7 +10,7 @@ import Order from "./pages/user/profile/Order";
 import Address from "./pages/user/profile/Address";
 import Credit from "./pages/user/profile/Credit";
 import ItemPost from "./pages/user/Item/ItemPost";
-import ItemDetails from "./pages/user/Item//ItemDetails";
+import ItemDetails from "./pages/user/Item/ItemDetails";
 import Retailer from "./pages/user/retailer/Retailer";
 import Items from "./pages/user/Item/Items";
 import "./components/FontAwesomeIcon";
@@ -18,11 +18,13 @@ import AllUsers from "./components/allUsers";
 import Protect from "./components/Protect";
 import ResetPassword from "./components/ResetPassword";
 import NewPassword from "./components/NewPassword";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import ItemsSeller from "./pages/user/Item/ItemsSeller"
 import Login from "./pages/user/registration/Login";
 import Register from ".//pages/user/registration/Register";
 import { isExpired, decodeToken } from "react-jwt";
 import { useEffect, useState } from "react";
+import EditItem from "./pages/user/Item/EditItem";
 
 function App() {
   const [user, setUser] = useState({});
@@ -36,53 +38,56 @@ function App() {
   const loginFunction = () => {
     let token = localStorage.getItem("token");
     let decodeuser = decodeToken(token);
+    console.log(decodeuser)
     if (decodeuser?.user && !isExpired(token)) {
       setUser(decodeuser.user);
       setIsLogin(true);
     } else {
       setUser({});
       setIsLogin(false);
+      console.log("hhhhhhhhhiiiiiiiiiii")
     }
   };
 
   console.log(user);
 
   return (
-    <Router>
-      <div className="App">
-        <Navigation isLogin={isLogin}></Navigation>
-        <div className="outer">
-          <div className="inner">
+    <BrowserRouter>
+      
+        <Navigation isLogin={isLogin}/>
+        
             <Switch>
+            <Route exact path="/" component={Home} />
               <Route
                 exact
                 path="/login"
                 render={() => <Login loginFunction={loginFunction} />}
               />
               <Route path="/signIn" component={Register} />
-              <Route component={Profile} path={"/profile"} />
+              <Protect component={Profile} path={"/profile"} isLogin ={isLogin} user ={user} loginFunction={loginFunction}/>
               <Route component={Order} path={"/Order"} />
               <Route component={Credit} path={"/Credit"} />
               <Route component={Address} path={"/Address"} />
               <Route component={ItemPost} path={"/ItemPost"} />
-              <Route component={ItemDetails} path={"/ItemDetails"} />
-              <Route component={Items} path={"/Items"} />
+              <Route component={ItemDetails}  path={"/Items/:id"} />
+              <Route component={Items} excat path={"/Items"} />
               <Route component={Retailer} path={"/Retailer"} />
+              <Route component={EditItem} path={"/EditItem/:id"} />
+              <Route component={ItemsSeller} path={"/ItemsBySeller"} />
               <Route exact path="/allusers" render={() => <AllUsers />} />
               <Route path="/ResetPassword" component={ResetPassword} />
               <Route exact path="/reset/:token">
-                <NewPassword />
+              <NewPassword />
               </Route>
-            </Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/Allitems/:id" component={ItemDetails} />
+              <Route exact path="/Allitems/:id" component={ItemDetails} />
 
-            <Footer />
-          </div>
-        </div>
-      </div>
-    </Router>
+            </Switch>
+          
+          
+
+            {/* <Footer /> */}
+       
+    </BrowserRouter>
   );
 }
-
 export default App;

@@ -45,7 +45,7 @@ export default function NewPassword(props) {
     //  props.loginFunction()
       console.log(data+ "hahahaha")
  
-     
+    localStorage.setItem("token", data.data.token);
     //  history.push('/signIn')
     }).catch(err =>{
       console.log(err.response)
