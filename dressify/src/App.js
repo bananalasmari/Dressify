@@ -75,7 +75,7 @@ function App() {
               <Route component={Retailer} path={"/Retailer"} />
               <Route component={EditItem} path={"/EditItem/:id"} />
               <Route component={ItemsSeller} path={"/ItemsBySeller"} />
-              <Route exact path="/allusers" render={() => <AllUsers />} />
+              {/* <Route exact path="/allusers" render={() => <AllUsers />} /> */}
               <Route path="/ResetPassword" component={ResetPassword} />
               <Route exact path="/reset/:token">
               <NewPassword />
