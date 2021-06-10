@@ -18,8 +18,13 @@ import AllUsers from "./components/allUsers";
 import Protect from "./components/Protect";
 import ResetPassword from "./components/ResetPassword";
 import NewPassword from "./components/NewPassword";
+<<<<<<< HEAD
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
+=======
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ItemsSeller from "./pages/user/Item/ItemsSeller"
+>>>>>>> 99208f19ffaf0fdb04b1354a0ef5c3dc5929b84f
 import Login from "./pages/user/registration/Login";
 import Register from ".//pages/user/registration/Register";
 import { isExpired, decodeToken } from "react-jwt";
@@ -38,31 +43,33 @@ function App() {
   const loginFunction = () => {
     let token = localStorage.getItem("token");
     let decodeuser = decodeToken(token);
+    console.log(decodeuser)
     if (decodeuser?.user && !isExpired(token)) {
       setUser(decodeuser.user);
       setIsLogin(true);
     } else {
       setUser({});
       setIsLogin(false);
+      console.log("hhhhhhhhhiiiiiiiiiii")
     }
   };
 
   console.log(user);
 
   return (
-    <Router>
-      <div className="App">
-        <Navigation isLogin={isLogin}></Navigation>
-        <div className="outer">
-          <div className="inner">
+    <BrowserRouter>
+      
+        <Navigation isLogin={isLogin}/>
+        
             <Switch>
+            <Route exact path="/" component={Home} />
               <Route
                 exact
                 path="/login"
                 render={() => <Login loginFunction={loginFunction} />}
               />
               <Route path="/signIn" component={Register} />
-              <Route component={Profile} path={"/profile"} />
+              <Protect component={Profile} path={"/profile"} isLogin ={isLogin} user ={user} loginFunction={loginFunction}/>
               <Route component={Order} path={"/Order"} />
               <Route component={Credit} path={"/Credit"} />
               <Route component={Address} path={"/Address"} />
@@ -77,13 +84,15 @@ function App() {
               <Route exact path="/reset/:token">
               <NewPassword />
               </Route>
+              <Route exact path="/Allitems/:id" component={ItemDetails} />
+
             </Switch>
-            <Route exact path="/" component={Home} />
-            <Footer />
-          </div>
-        </div>
-      </div>
-    </Router>
+          
+          
+
+            {/* <Footer /> */}
+       
+    </BrowserRouter>
   );
 }
 export default App;

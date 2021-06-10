@@ -1,15 +1,84 @@
-import React from 'react'
+import React , {useState , useEffect} from 'react';
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Card from 'react-bootstrap/Card'
 import '../../../assets/css/auth.css'
 import { AiOutlineTags } from 'react-icons/ai';
+import {useHistory} from "react-router-dom";
+import axios from "axios";
+import {useParams} from 'react-router-dom'
 
 
-export default function Retailer (props) {
-    console.log(props.match.params.id)
-    const id = props.match.params.id
+export default function Retailer ({user ,loginFunction , test }) {
+
+      const history = useHistory()
+  
+      
+      
+      const {token} = useParams()
+  
+        console.log(token)
+     const [name, setName] = useState('');
+    const [address, setAddress] = useState('');
+    const [email, setEmail] = useState('');
+     
+      const {userid} = useParams()
+  
+     const [flage , setFlage]= useState(false)
+    
+      const [success ,setSuccess] = useState(false)
+      // const [show, setShow] = useState(false);
+      const [message ,setMessage] = useState("")
+      
+    
+  
+      // localStorage.getItem("type", data.data.type);
+   
+  console.log(user)
+  
+  const data = localStorage.getItem("user_id")
+  console.log(data)
+
+
+
+
+
+
+  const userOnsubmitHandler = (e)=>{
+      console.log("data")
+   
+
+     e.preventDefault()
+
+     axios.post('http://localhost:4000/api/v1/user/getUserDetails/' + data,
+     {name  , email  , address })
+     .then( data =>{
+     console.log(data)
+     // localStorage.setItem("token",data.data.token)
+   }).catch(err=>{
+console.log(err)
+
+
+   })
+    
+ }
+
+
+
+ useEffect(() => {
+      if (user) {
+        console.log(user.name)
+        setEmail(user.email);
+        setName(user.name);
+        setAddress(user.address);
+      }
+     
+    }, [user])
+
+    
+
+
     return (
         <Container component="main" maxWidth="xs" >
             <div className="card card-auth">

@@ -8,6 +8,8 @@ import Container from "react-bootstrap/Container";
 import "../../../assets/css/auth.css";
 
 export default function Login(props) {
+
+
   const history = useHistory();
 
   const [user, setUser] = useState({});
@@ -21,26 +23,29 @@ export default function Login(props) {
   const OnsubmitHandler = (e) => {
     e.preventDefault();
     console.log("click");
-    axios
-      .post("http://localhost:4000/api/v1/user/login", {
+    axios.post("http://localhost:4000/api/v1/user/login", {
         email: user.email,
         password: user.password,
       })
       .then((data) => {
         console.log(data.data.userID);
+        console.log(data.data.type);
         console.log(data);
         localStorage.setItem("token", data.data.token);
+        localStorage.setItem("type", data.data.type);
         localStorage.setItem("user_id", data.data.userID);
         localStorage.setItem("user", JSON.stringify(data.user));
         console.log(localStorage.getItem("user_id"))
         props.loginFunction();
-        history.push("/signIn");
+     
+        history.push("/");
         // localStorage.setItem("token",data.data.token)
       })
       .catch((err) => {
         console.log(err.response);
       });
   };
+   console.log("user" , user)
   return (
     <Container component="main" maxWidth="xs">
       <div className="card card-auth">
