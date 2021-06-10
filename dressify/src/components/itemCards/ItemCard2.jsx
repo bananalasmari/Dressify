@@ -6,11 +6,10 @@ import { useHistory } from "react-router-dom";
 
 export default function ItemCard2(props) {
     const history = useHistory();
+    console.log(props.item.image)
     const detailsHandler = () =>{
         history.push(`/Items/${props.item._id}`);
     }
-
-
   return (
     <div className="col-lg-4 col-sm-6" data-aos="fade-up">
       <Card style={{ width: "18rem" }}>
