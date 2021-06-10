@@ -19,7 +19,6 @@ import Protect from "./components/Protect";
 import ResetPassword from "./components/ResetPassword";
 import NewPassword from "./components/NewPassword";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
 import Login from "./pages/user/registration/Login";
 import Register from ".//pages/user/registration/Register";
 import { isExpired, decodeToken } from "react-jwt";

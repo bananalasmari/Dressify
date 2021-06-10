@@ -9,7 +9,7 @@ import '../assets/css/navbar.css';
 
 
 
-export default function Navigation() {
+export default function Navigation(props) {
    const history = useHistory()
 
    const [navbar, setNavbar] = useState(false);
@@ -48,7 +48,12 @@ export default function Navigation() {
                <span class="w-100"></span>
                <Button variant="dark" onClick={() => history.push('/signIn')}>SignUp</Button>
                {' '}
+               { !props.isLogin ?
                <Button variant="outline-light" onClick={() => history.push('/login')}>Login</Button>
+           :
+           <Button variant="outline-light" onClick={() => history.push('/Profile')}>Profile</Button>
+           } 
+
             </div>
 
 
