@@ -18,14 +18,10 @@ import AllUsers from "./components/allUsers";
 import Protect from "./components/Protect";
 import ResetPassword from "./components/ResetPassword";
 import NewPassword from "./components/NewPassword";
-<<<<<<< HEAD
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-=======
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import ItemsSeller from "./pages/user/Item/ItemsSeller"
->>>>>>> 99208f19ffaf0fdb04b1354a0ef5c3dc5929b84f
 import Login from "./pages/user/registration/Login";
+import ItemsSeller from "./pages/user/Item/ItemsSeller"
 import Register from ".//pages/user/registration/Register";
 import { isExpired, decodeToken } from "react-jwt";
 import { useEffect, useState } from "react";
@@ -79,7 +75,7 @@ function App() {
               <Route component={Retailer} path={"/Retailer"} />
               <Route component={EditItem} path={"/EditItem/:id"} />
               <Route component={ItemsSeller} path={"/ItemsBySeller"} />
-              <Route exact path="/allusers" render={() => <AllUsers />} />
+              {/* <Route exact path="/allusers" render={() => <AllUsers />} /> */}
               <Route path="/ResetPassword" component={ResetPassword} />
               <Route exact path="/reset/:token">
               <NewPassword />
