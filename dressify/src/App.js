@@ -14,13 +14,15 @@ import ItemDetails from "./pages/user/Item/ItemDetails";
 import Retailer from "./pages/user/retailer/Retailer";
 import Items from "./pages/user/Item/Items";
 import "./components/FontAwesomeIcon";
-import AllUsers from "./components/allUsers";
+
 import Protect from "./components/Protect";
 import ResetPassword from "./components/ResetPassword";
 import NewPassword from "./components/NewPassword";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ItemsSeller from "./pages/user/Item/ItemsSeller"
+
 import Login from "./pages/user/registration/Login";
+import ItemsSeller from "./pages/user/Item/ItemsSeller"
 import Register from ".//pages/user/registration/Register";
 import { isExpired, decodeToken } from "react-jwt";
 import { useEffect, useState } from "react";
@@ -74,7 +76,7 @@ function App() {
               <Route component={Retailer} path={"/Retailer"} />
               <Route component={EditItem} path={"/EditItem/:id"} />
               <Route component={ItemsSeller} path={"/ItemsBySeller"} />
-              <Route exact path="/allusers" render={() => <AllUsers />} />
+      
               <Route path="/ResetPassword" component={ResetPassword} />
               <Route exact path="/reset/:token">
               <NewPassword />
