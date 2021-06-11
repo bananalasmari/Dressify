@@ -8,18 +8,22 @@ import axios from "axios";
 
 export default function ItemCard3(props) {
     const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+    setShow(false);
+    window.location.reload();  
+  }
     const handleShow = () => setShow(true);
+    const history = useHistory();
 
-  const history = useHistory();
   const onClickEdit = () => {
     history.push(`/EditItem/${props.item._id}`);
   };
-  const onClickDelete = () =>  {
+  const onClickDelete = (e) =>  {
+    e.preventDefault();
     axios
       .delete(`http://localhost:4000/api/items/${props.item._id}`)
       .then((data) => console.log(data))
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error));  
   };
   return (
     <div className="col-lg-4 col-sm-6" data-aos="fade-up">
@@ -51,7 +55,7 @@ export default function ItemCard3(props) {
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="primary" onClick={()=>{onClickDelete(); handleClose();}}>Delete</Button>
+          <Button variant="primary" onClick={(e)=>{onClickDelete(e); handleClose();}}>Delete</Button>
         </Modal.Footer>
       </Modal>
     </div>
