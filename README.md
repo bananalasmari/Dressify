@@ -1,5 +1,5 @@
 # Dressify
-![wireframe](/dressify/src/assets/logo.png)
+![wireframe](/dressify/src/assets/imges/logo.png)
 #### Developed With ❤️ by Fullstackers
 
 ## Project Discription
@@ -13,6 +13,18 @@
 
 - Manal Alotaibi
 
+---
+
+
+## Browse Dressify:
+* [Dressify]()
+
+
+---
+
+
+## Back-end Development:
+* [Dressify-Backend](https://git.generalassemb.ly/xmaanall/Project-4-AUTH)
 
 ---
 
@@ -62,11 +74,22 @@
 
 ---
 
-### Unsolved Problems
-```Python
-def quiz(request, title):
-    cat=Category.objects.get(title=title)
-    quiz=Quiz.objects.filter(category=cat)
-    return render(request,‘quizes/main.html’,{‘quiz’:quiz})
-    
-   ```
+## Screenshot of Dressify:
+
+![ ](/dressify/src/assets/imges/Dressify-1.png)
+![ ](/dressify/src/assets/imges/Dressify-2.png)
+![ ](/dressify/src/assets/imges/Dressify-3.png)
+
+---
+
+## List unsolved problems:
+
+* Categories filter
+* Search Bar
+* Review item
+* Rate items
+* Activate Mada, Visa payments method.
+
+
+---
+
