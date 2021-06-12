@@ -106,6 +106,15 @@ h5 {
 
 }
 
+/* .nav-item:hover a {
+    color: #ffc8d4 !important;
+    transition: all 0.3s ease-in-out 0s;
+} */
+
+.dropdown-item, .dropdown-menu {
+    transition: all 0.3s ease-in-out 0s;
+}
+
 
   @media all and (max-width: 991px) {
  
