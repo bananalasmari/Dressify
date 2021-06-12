@@ -182,7 +182,7 @@ useEffect(() => {
 
 
 
-   <Form style={{position: "fixed"}}   onSubmit={(e) => userOnsubmitHandler(e)} >
+   <Form  onSubmit={(e) => userOnsubmitHandler(e)} >
        
  
 

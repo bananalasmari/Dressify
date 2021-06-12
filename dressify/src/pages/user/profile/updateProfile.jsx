@@ -158,9 +158,9 @@ console.log(err)
     
             <div className="card card-post" data-aos="fade-up">
 
-   <Form style={{position: "fixed"}}   onSubmit={(e) => userOnsubmitHandler(e)}>
+   <Form  onSubmit={(e) => userOnsubmitHandler(e)}>
      <Form.Group controlId="formBasicName1" >
-     <Form.Label>  </Form.Label>
+     <Form.Label>Name:</Form.Label>
      <FormControl 
      autoComplete="fname"
      name="name"
@@ -179,7 +179,7 @@ console.log(err)
      </Form.Group>
 
    <Form.Group controlId="formBasicEmail1" >
-     <Form.Label> </Form.Label>
+     <Form.Label>Email:</Form.Label>
      <FormControl 
       variant="outlined"
       required
@@ -200,7 +200,7 @@ console.log(err)
  
   
    <Form.Group controlId="formGridAddress1">
- <Form.Label> </Form.Label>
+ <Form.Label>Address:</Form.Label>
  <FormControl placeholder="1234 Main St" 
   variant="outlined"
   margin="normal"
