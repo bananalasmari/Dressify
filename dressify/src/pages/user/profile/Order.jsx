@@ -7,7 +7,7 @@ import { BsBag } from "react-icons/bs";
 import Table from "react-bootstrap/Table";
 import axios from "axios";
 import OrderRow from './OrderRow';
-
+ 
 
 export default function Order({ user, Login }) {
   const history = useHistory();
@@ -24,7 +24,7 @@ export default function Order({ user, Login }) {
       })
       .catch((error) => console.error(error));
   }, []);
-
+ 
   let orderContent = "";
   let orderEmpty = "";
   if(orders == undefined) {
@@ -82,7 +82,7 @@ export default function Order({ user, Login }) {
           </div>
         </div>
       </div>
-      {/* <OrderDetails show={modalShow} onHide={() => setModalShow(false)} />  */}
     </Container>
   );
+ 
 }

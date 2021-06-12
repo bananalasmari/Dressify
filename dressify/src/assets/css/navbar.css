@@ -30,6 +30,32 @@
   .btn-dark {
    margin: 5px;
   }
+
+  .dropdown-menu {
+        transition: all .1s ease;
+        transition-duration: 0.5s;
+  }
+
+  .dropdown-toggle::after {
+      display: inline-block;
+      margin-left: .255em;
+      vertical-align: .255em;
+      content: "";
+      border-top: .3em solid;
+      border-right: 0;
+      /* border-bottom: 0; */
+      border-left: 0;
+  }
+
+.nav-link:focus  {
+      background-color: #fff;
+      border-radius: 5px;
+}
+
+.dropdown-menu {
+      border: 0 !important;
+      padding-top: -4px !important;
+}
  
 
   @media all and (max-width: 991px) {
@@ -48,3 +74,6 @@
     
     
     }
+
+
+    

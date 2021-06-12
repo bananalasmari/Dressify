@@ -56,6 +56,8 @@ export default function Cart() {
           </div>
           <div className="col-lg-8 col-sm-6" data-aos="fade-up">
             <div className="card-body">
+              <h2 className="card-title">Product</h2>
+ 
               <div className="row">
                 {cartEmpty}
                 <Table  striped bordered hover>
