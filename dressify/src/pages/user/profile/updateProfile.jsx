@@ -3,7 +3,10 @@ import React , {useState , useEffect} from 'react';
 
 import withReactContent from 'sweetalert2-react-content'
 
+import Card from 'react-bootstrap/Card'
 
+
+import "../../../assets/css/auth.css";
 import Form from 'react-bootstrap/Form';
 
 import Button from 'react-bootstrap/Button';
@@ -152,6 +155,8 @@ console.log(err)
  } 
       
     
+    
+            <div className="card card-post" data-aos="fade-up">
 
    <Form style={{position: "fixed"}}   onSubmit={(e) => userOnsubmitHandler(e)}>
      <Form.Group controlId="formBasicName1" >
@@ -217,6 +222,7 @@ console.log(err)
         onClick={()=> logOut()}
       variant="outlined">log Out </Button> */}
  </Form>
+ </div>
  </Container> 
 
     )

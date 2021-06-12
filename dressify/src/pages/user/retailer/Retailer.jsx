@@ -5,7 +5,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import Card from 'react-bootstrap/Card'
 import '../../../assets/css/auth.css'
 import { AiOutlineTags } from 'react-icons/ai';
-import {useHistory} from "react-router-dom";
+import {useHistory,Link} from "react-router-dom";
 import axios from "axios";
 import {useParams} from 'react-router-dom'
 import ItemCard4 from "../../../components/itemCards/itemCard4";
@@ -94,13 +94,27 @@ useEffect(() => {
 
     return (
         <Container component="main" maxWidth="xs" >
+        
             <div className="card card-auth">
                 <div className="row">
+             
                     <div className="col-lg-3 col-sm-6" data-aos="fade-up-left">
-                        <img class="retailer-logo" src={Image} />
+                
+                        <img class="retailer-logo" src={Image} 
+                     
+                        />
                     </div>
+                  
                     <div className="col-lg-8 col-sm-6" data-aos="fade-up">
                         <div className="post-details">
+                        <Link to="/ItemPost"  style ={{color: '#a87a63' , paddingLeft: 12}} >
+                {"Add Items"}
+              </Link>
+              {"  "} 
+              <Link to="/ItemsBySeller"  style ={{color: '#a87a63'}} >
+                {"Edit Items"}
+              </Link>
+                      
                             <h2 className="post-title">{name}</h2>
                             <p style={{ color: '#2d2d2d', fontWeight: 200, fontSize: 15 }}><span>@{}</span></p>
                             <p style={{ color: '#2d2d2d', fontWeight: 800, fontSize: 15 }} ><AiOutlineTags/> <span>33</span> Sold</p>
