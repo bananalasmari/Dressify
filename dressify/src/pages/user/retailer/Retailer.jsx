@@ -8,21 +8,22 @@ import { AiOutlineTags } from 'react-icons/ai';
 import {useHistory} from "react-router-dom";
 import axios from "axios";
 import {useParams} from 'react-router-dom'
-
+import ItemCard4 from "/Users/manal/Desktop/SEI/projects/Project-4/dressify/src/components/itemCards/itemCard4.jsx";
 
 export default function Retailer ({user ,loginFunction , test }) {
 
       const history = useHistory()
   
       
-      
-      const {token} = useParams()
-  
-        console.log(token)
+   
      const [name, setName] = useState('');
     const [address, setAddress] = useState('');
     const [email, setEmail] = useState('');
-     
+    const [Image, setImage] = useState('');
+
+    const [Items, setItems] = useState([]);
+
+    
       const {userid} = useParams()
   
      const [flage , setFlage]= useState(false)
@@ -35,46 +36,58 @@ export default function Retailer ({user ,loginFunction , test }) {
   
       // localStorage.getItem("type", data.data.type);
    
-  console.log(user)
+ 
   
-  const data = localStorage.getItem("user_id")
-  console.log(data)
+  const id = localStorage.getItem("user_id")
+  console.log(id)
 
 
 
+ 
 
 
-
-  const userOnsubmitHandler = (e)=>{
-      console.log("data")
+//   const userOnsubmitHandler = (e)=>{
+//       console.log("data")
    
 
-     e.preventDefault()
+//      e.preventDefault()
 
-     axios.post('http://localhost:4000/api/v1/user/getUserDetails/' + data,
-     {name  , email  , address })
-     .then( data =>{
-     console.log(data)
-     // localStorage.setItem("token",data.data.token)
-   }).catch(err=>{
-console.log(err)
+//      axios.post('http://localhost:4000/api/v1/user/getUserDetails/' + data,
+//      {name  , email  , address })
+//      .then( data =>{
+//      console.log(data)
+//      // localStorage.setItem("token",data.data.token)
+//    }).catch(err=>{
+// console.log(err)
 
 
-   })
+//    })
     
- }
+//  }
+
+useEffect(() => {
+      console.log(id)
+      
+    axios.get(`http://localhost:4000/api/v1/user/updateRetailer/${id}`)
+
+      .then((data) => {
+       setName(data.data.name);
+     setImage(data.data.Image)
+     console.log(data.data.Image)
+       setAddress(data.data.address);
+       setEmail(data.data.email);
+      //  userDetail(data.data);
+      })
+      .catch((error) => console.error(error));
 
 
-
- useEffect(() => {
-      if (user) {
-        console.log(user.name)
-        setEmail(user.email);
-        setName(user.name);
-        setAddress(user.address);
-      }
-     
-    }, [user])
+      axios
+      .get(`http://localhost:4000/api/items/seller/${id}`)
+      .then((data) => {
+        setItems(data.data);
+      })
+      .catch((error) => console.error(error))
+  }, []);
 
     
 
@@ -84,12 +97,12 @@ console.log(err)
             <div className="card card-auth">
                 <div className="row">
                     <div className="col-lg-3 col-sm-6" data-aos="fade-up-left">
-                        <img class="retailer-logo" src="https://www.giordano.com.sa/wp-content/uploads/2017/01/us-placeholder-square.png" />
+                        <img class="retailer-logo" src={Image} />
                     </div>
                     <div className="col-lg-8 col-sm-6" data-aos="fade-up">
                         <div className="post-details">
-                            <h2 className="post-title">Giordano</h2>
-                            <p style={{ color: '#2d2d2d', fontWeight: 200, fontSize: 15 }}><span>@</span>Giordano</p>
+                            <h2 className="post-title">{name}</h2>
+                            <p style={{ color: '#2d2d2d', fontWeight: 200, fontSize: 15 }}><span>@{}</span></p>
                             <p style={{ color: '#2d2d2d', fontWeight: 800, fontSize: 15 }} ><AiOutlineTags/> <span>33</span> Sold</p>
                             <p>Vintage & Hype | Bundle deals available | 💨 Fast shipping 💨</p>
                             <ListGroup variant="flush">
@@ -99,64 +112,15 @@ console.log(err)
                     </div>
                 </div>
 
-                <div className="row">
-                        <div className="col-lg-4 col-sm-6" data-aos="fade-up">
-                              <Card >
-                                    <Card.Img variant="top" src="
-                                   https://ounass-prod3.atgcdn.ae/small_light(dw=350,of=webp)/pub/media/catalog/product/2/1/214217820_black_in.jpg?1610642647.2564" />
-                                    <Card.Body>
-                                          <Card.Title>Card Title</Card.Title>
-                                          <Card.Text>
-                                                Some quick example text to build on the card title and make up the bulk of
-                                                the card's content.
-                                               </Card.Text>
+              
+                <div className="row" >
+                {Items.map((item) => (
+          <ItemCard4 item={item} />
+        ))}
 
-                                               <Card.Text className="item-price">
-                                                1.8000 SAR
-                                               </Card.Text>
-                                          <Button variant="primary">More Info</Button>
-                                    </Card.Body>
-                              </Card>
-                        </div>
-
-                        <div className="col-md-4 col-sm-6" data-aos="fade-up">
-                              <Card >
-                                    <Card.Img variant="top" src="
-                                   https://ounass-prod3.atgcdn.ae/small_light(dw=440,of=webp)/pub/media/catalog/product/2/1/214375608_pink_in.jpg?1615969145.6825" />
-                                    <Card.Body>
-                                          <Card.Title>Card Title</Card.Title>
-                                          <Card.Text>
-                                                Some quick example text to build on the card title and make up the bulk of
-                                                the card's content.
-                                               </Card.Text>
-                                               <Card.Text className="item-price">
-                                                1.8000 SAR
-                                               </Card.Text>
-                                          <Button variant="primary">More Info</Button>
-                                    </Card.Body>
-                              </Card>
-                        </div>
-
-                        <div className="col-lg-4 col-sm-6" data-aos="fade-up">
-                              <Card >
-                                    <Card.Img variant="top" src="
-                                    https://ounass-prod4.atgcdn.ae/small_light(dw=350,of=webp)/pub/media/catalog/product/2/1/214189659_lbl_in.jpg?1611161634.5771" />
-                                    <Card.Body>
-                                          <Card.Title>Card Title</Card.Title>
-                                          <Card.Text>
-                                                Some quick example text to build on the card title and make up the bulk of
-                                                the card's content.
-                                               </Card.Text>
-                                               <Card.Text className="item-price">
-                                                1.8000 SAR
-                                               </Card.Text>
-                                          <Button variant="primary">More Info</Button>
-                                    </Card.Body>
-                              </Card>
-                        </div>
-
+                       
                   </div>
-
+                
             </div>
         </Container>
     )

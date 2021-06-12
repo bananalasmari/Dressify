@@ -31,13 +31,21 @@ export default function Login(props) {
         console.log(data.data.userID);
         console.log(data.data.type);
         console.log(data);
-        localStorage.setItem("token", data.data.token);
-        localStorage.setItem("type", data.data.type);
+        
         localStorage.setItem("user_id", data.data.userID);
+        localStorage.setItem("token" ,data.data.token);
+        localStorage.setItem("type" ,data.data.type );
+        localStorage.setItem("user_id",data.data.userID);
+        localStorage.setItem("name", data.data.name);
+        localStorage.setItem( "email",data.data.email);
+        localStorage.setItem("address",data.data.address);
+
+        
         localStorage.setItem("user", JSON.stringify(data.user));
         console.log(localStorage.getItem("user_id"))
+        console.log(localStorage.getItem("name"))
         props.loginFunction();
-     
+     console.log("manal alotaibi")
         history.push("/");
         // localStorage.setItem("token",data.data.token)
       })

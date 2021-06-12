@@ -15,7 +15,8 @@ export default function ItemCard3(props) {
   const onClickEdit = () => {
     history.push(`/EditItem/${props.item._id}`);
   };
-  const onClickDelete = () =>  {
+  const onClickDelete = (e) =>  {
+    e.preventDefault()
     axios
       .delete(`http://localhost:4000/api/items/${props.item._id}`)
       .then((data) => console.log(data))
@@ -51,7 +52,7 @@ export default function ItemCard3(props) {
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="primary" onClick={()=>{onClickDelete(); handleClose();}}>Delete</Button>
+          <Button variant="primary" onClick={(e)=>{onClickDelete(e); handleClose();}}>Delete</Button>
         </Modal.Footer>
       </Modal>
     </div>

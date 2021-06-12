@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { useHistory } from "react-router-dom"
+import { useHistory , Link } from "react-router-dom"
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 import "../../../assets/css/profile.css"
@@ -25,7 +25,8 @@ export default function Order({ user, Login }) {
                                     <ul className="user-list">
                                           <h3 className="user-title">My Account</h3>
                                           <a href="/Order"><li>My Orders</li></a>
-                                          <a href="/Profile"><li>My Profile</li></a>
+                                          < Link to= "/MyAccount">
+                               <li>My Profile</li></Link>
                                           <a href="/Address"><li>My Address Book</li></a>
                                           <a href="/Credit"><li>Credit / Debit Cards</li></a>
                                     </ul>
