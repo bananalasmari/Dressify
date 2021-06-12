@@ -6,7 +6,9 @@ import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import Home from "./components/home/Home";
 import Profile from "./pages/user/profile/Profile";
-import UpdateProfile from "./pages/user/profile/UpdateProfile";
+
+import UpdateProfile from "/Users/manal/Desktop/SEI/projects/Project-4/dressify/src/pages/user/profile/updateProfile.jsx";
+
 import Order from "./pages/user/profile/Order";
 import Credit from "./pages/user/profile/Credit";
 import ItemPost from "./pages/user/Item/ItemPost";
@@ -18,6 +20,7 @@ import Protect from "./components/Protect";
 import ResetPassword from "./components/ResetPassword";
 import NewPassword from "./components/NewPassword";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import updateRetailer from "/Users/manal/Desktop/SEI/projects/Project-4/dressify/src/pages/user/retailer/updateRetailer.jsx"
 
 import ItemsSeller from "./pages/user/Item/ItemsSeller"
 import Login from "./pages/user/registration/Login";
@@ -67,7 +70,7 @@ function App() {
                 path="/login"
                 render={() => <Login loginFunction={loginFunction} />}
               />
-              <Route path="/signIn" component={Register} />
+              <Route  component={Register} path="/signIn"  />
               <Route component={Profile} path={"/MyAccount"} />
               <Protect component={UpdateProfile} path={"/update/:id"} isLogin ={isLogin} user={user} loginFunction={loginFunction}/>
               <Route component={Order} path={"/Order"} />

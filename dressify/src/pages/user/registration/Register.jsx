@@ -50,6 +50,7 @@ const useStyles = createUseStyles({
 })
 
 
+
 export default function Register() {
 
   const history = useHistory()
@@ -92,10 +93,28 @@ export default function Register() {
     })
   }
 
+  const testList = [
+    {
+      id: 1,
+      title: 'Success',
+      description: 'This is a success toast component',
+      backgroundColor: '#5cb85c',
+      icon: checkIcon
+    },
+    {
+      id: 2,
+      title: 'Danger',
+      description: 'This is an error toast component',
+      backgroundColor: '#d9534f',
+      icon: errorIcon
+    },
+];
+
   return (
 
     
     <Container component="main" maxWidth="xs">
+      
       { flage &&
         (success ? <Toast className={classes.success} severity="success" autoClose={5000}  >{message}</Toast> :
           <Toast className={classes.danger} severity="error">{message}</Toast>)
