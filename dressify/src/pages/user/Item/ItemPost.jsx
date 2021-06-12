@@ -43,6 +43,8 @@ export default function ItemPost() {
       })
       .then((data) => console.log(data))
       .catch((error) => console.log(error));
+      history.push('/ItemsBySeller');
+      window.location.reload();  
       }
       setValidated(true);
     };

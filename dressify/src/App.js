@@ -14,12 +14,11 @@ import ItemDetails from "./pages/user/Item/ItemDetails";
 import Retailer from "./pages/user/retailer/Retailer";
 import Items from "./pages/user/Item/Items";
 import "./components/FontAwesomeIcon";
-
 import Protect from "./components/Protect";
 import ResetPassword from "./components/ResetPassword";
 import NewPassword from "./components/NewPassword";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-
+import ItemsSeller from "./pages/user/Item/ItemsSeller"
 import Login from "./pages/user/registration/Login";
 import ItemsSeller from "./pages/user/Item/ItemsSeller"
 import Register from ".//pages/user/registration/Register";
@@ -81,13 +80,8 @@ function App() {
               <NewPassword />
               </Route>
               <Route exact path="/Allitems/:id" component={ItemDetails} />
-
             </Switch>
-          
-          
-
             {/* <Footer /> */}
-       
     </BrowserRouter>
   );
 }
