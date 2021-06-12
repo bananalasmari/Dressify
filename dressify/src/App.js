@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 import Home from "./components/home/Home";
 import Profile from "./pages/user/profile/Profile";
 
-import UpdateProfile from "/Users/manal/Desktop/SEI/projects/Project-4/dressify/src/pages/user/profile/updateProfile.jsx";
+import UpdateProfile from "./pages/user/profile/updateProfile";
 
 import Order from "./pages/user/profile/Order";
 import Credit from "./pages/user/profile/Credit";
@@ -20,8 +20,7 @@ import Protect from "./components/Protect";
 import ResetPassword from "./components/ResetPassword";
 import NewPassword from "./components/NewPassword";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import updateRetailer from "/Users/manal/Desktop/SEI/projects/Project-4/dressify/src/pages/user/retailer/updateRetailer.jsx"
-
+import updateRetailer from "./pages/user/retailer/updateRetailer.jsx"
 import ItemsSeller from "./pages/user/Item/ItemsSeller"
 import Login from "./pages/user/registration/Login";
 // import ItemsSeller from "./pages/user/Item/ItemsSeller"
