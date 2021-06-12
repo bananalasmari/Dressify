@@ -22,7 +22,7 @@ export default function Navigation(props, loginFunction) {
       loginFunction()
       history.push("/")
 
-  }
+   }
 
    const [navbar, setNavbar] = useState(false);
 
@@ -40,13 +40,13 @@ export default function Navigation(props, loginFunction) {
             <div className="container ">
                <Navbar.Collapse className="navbar-collapse w-100 order-1 order-lg-0 collapse" id="navbarNav">
                   <Nav className="navbar-nav">
-                  <NavDropdown title="Women" id="basic-nav-dropdown">
-          <NavDropdown.Item href="#action/3.1">Clothing</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">Shoes</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Bags</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.4">Jewellery</NavDropdown.Item>
-        </NavDropdown>
-                    
+                     <NavDropdown title="Women" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="/items">Clothing</NavDropdown.Item>
+                        <NavDropdown.Item href="/items">Shoes</NavDropdown.Item>
+                        <NavDropdown.Item href="/items">Bags</NavDropdown.Item>
+                        <NavDropdown.Item href="/items">Jewellery</NavDropdown.Item>
+                     </NavDropdown>
+
                      <Nav.Item>
                         <Nav.Link>Men</Nav.Link>
                      </Nav.Item>
@@ -62,24 +62,24 @@ export default function Navigation(props, loginFunction) {
                   </div>
                </div>
                <span class="w-100"></span>
-               { (!props.isLogin ? <Button variant="dark" onClick={() => history.push('/signIn')}>SignUp</Button> :
-               <Button  style={{ fontSize: 26, border: 0 }}label="Profile" variant="outline-light" onClick={() => history.push('/Cart')}><AiOutlineShoppingCart/></Button> 
-    
+               {(!props.isLogin ? <Button variant="dark" onClick={() => history.push('/signIn')}>SignUp</Button> :
+                  <Button style={{ fontSize: 26, border: 0 }} label="Profile" variant="outline-light" onClick={() => history.push('/Cart')}><AiOutlineShoppingCart /></Button>
+
                )}
 
 
-{ (!props.isLogin ?  <Button variant="outline-light" onClick={() => history.push('/login')} label="login" >Login</Button>:
-               
-               [
-                <Button  id="profile-btn" label="Profile" variant="outline-light" onClick={() => history.push('/MyAccount')}>Profile</Button>,
-                <Button  style={{ fontSize: 26, border: 0 }}label="Profile" variant="outline-light" onClick={()=> logOut()}><FiLogOut/></Button> 
-               ] 
-   )}
+               {(!props.isLogin ? <Button variant="outline-light" onClick={() => history.push('/login')} label="login" >Login</Button> :
+
+                  [
+                     <Button id="profile-btn" label="Profile" variant="outline-light" onClick={() => history.push('/MyAccount')}>Profile</Button>,
+                     <Button style={{ fontSize: 26, border: 0 }} label="Profile" variant="outline-light" onClick={() => logOut()}><FiLogOut /></Button>
+                  ]
+               )}
             </div>
 
 
          </Navbar>
       </div>
 
-);
+   );
 } 
