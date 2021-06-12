@@ -27,7 +27,6 @@ export default function Credit({ user, Login }) {
                                           <a href="/Order"><li>My Orders</li></a>
                                  < Link to= "/MyAccount">
                                <li>My Profile</li></Link>
-                                          <a href="/Address"><li>My Address Book</li></a>
                                           <a href="/Credit"><li>Credit / Debit Cards</li></a>
                                     </ul>
                               </div>

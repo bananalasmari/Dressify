@@ -1,97 +1,167 @@
-import React , {useState , useEffect,Component} from 'react';
-import { useHistory , Link } from "react-router-dom"
-import Container from 'react-bootstrap/Container'
-import Button from 'react-bootstrap/Button'
-import "../../../assets/css/profile.css"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {useParams} from 'react-router-dom'
-import updadeProfile from "./updateProfile.jsx";
+import React, { useState, useEffect } from 'react';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import axios from "axios";
+import FormControl from 'react-bootstrap/FormControl'
+
+import 'react-toastify/dist/ReactToastify.css';
+import Container from 'react-bootstrap/Container';
+import { useHistory } from "react-router-dom";
+import { Toast } from 'react-bootstrap';
+// import { ToastContainer, toast } from 'react-toastify';
+// import Toast from '/Users/manal/Desktop/SEI/projects/Project-4/dressify/src/components/toast/Toast.jsx';
+import { createUseStyles } from 'react-jss'
+// toast.configure()
+import checkIcon from '../../../assets/check.svg';
+import errorIcon from '../../../assets/error.svg';
+import { useParams } from 'react-router-dom'
+
+const useStyles = createUseStyles({
+  success: {
+    display: 'block',
+    width: 700,
+    padding: 30,
+    position: "fixed",
+    top: "10px",
+
+    backgroundColor: '#5cb85c',
+    icon: checkIcon,
+
+    right: "10px",
+
+    zIndex: 9999,
+    color: 'black',
+
+  },
+  danger: {
+    display: 'block',
+    width: 700,
+    padding: 30,
+    position: "fixed",
+    top: "10px",
+    right: "10px",
+    backgroundColor: '#d9534f',
+    backgroundImage: errorIcon,
+    zIndex: 9999,
+    color: 'black',
+
+  }
+})
+export default function Profile({ user, loginFunction, test }) {
+
+
+  console.log(user)
+
+
+  const logOut = () => {
+    localStorage.removeItem("token")
+    loginFunction()
+    history.push("/")
+
+  }
+
+  const history = useHistory()
+  const classes = useStyles();
+
+
+  const { token } = useParams()
+
+  console.log(token)
+  const [name, setName] = useState('');
+  const [address, setAddress] = useState('');
+  const [email, setEmail] = useState('');
+
+  const { userid } = useParams()
+
+  const [flage, setFlage] = useState(false)
+
+  const [success, setSuccess] = useState(false)
+  // const [show, setShow] = useState(false);
+  const [message, setMessage] = useState("")
 
 
 
 
 
-export default function Profile(props) {
+  console.log(user)
 
-      const history = useHistory()
-      // const [Detail, userDetail] = useState([]);
-
-
-      const [name, setName] = useState('');
-      const [address, setAddress] = useState('');
-      const [email, setEmail] = useState('');
-
-      // const {token} = useParams()
-      // console.log(token)
+  const data = localStorage.getItem("user_id")
+  console.log(data)
 
 
+  const userOnsubmitHandler = (e) => {
 
-      
-      const id = localStorage.getItem("user_id")
-      
-  useEffect(() => {
-      console.log(id)
-      
-    axios.get(`http://localhost:4000/api/v1/user/UserDetails/${id}`)
+    e.preventDefault()
 
-      .then((data) => {
-       setName(data.data.name);
-     
-       setAddress(data.data.address);
-       setEmail(data.data.email);
-      //  userDetail(data.data);
+    axios.post('http://localhost:4000/api/v1/user/getUserDetails/' + data,
+      { name, email, address })
+      .then(data => {
+        console.log(data)
+        // localStorage.setItem("token",data.data.token)
+      }).catch(err => {
+        console.log(err)
+
+
       })
-      .catch((error) => console.error(error));
-  }, []);
+
+  }
+
+  useEffect(() => {
+    if (user) {
+      console.log(user.name)
+      setEmail(user.email);
+      setName(user.name);
+      setAddress(user.address);
+    }
+
+  }, [user])
+
+
+
+  return (
 
 
 
 
+    <Container component="main" maxWidth="xs">
+      <div className="card user-detils">
+        <div className="row">
+          <div className="col-lg-4 col-sm-6" data-aos="fade-up">
+            <ul className="user-list">
+              <h3 className="user-title">My Account</h3>
+              <a href="/Order"><li>My Orders</li></a>
+              <a href="/MyAccount"><li>My Profile</li></a>
+              <a href="/Credit"><li>Credit / Debit Cards</li></a>
+            </ul>
+          </div>
+          <div className="col-lg-8 col-sm-6" data-aos="fade-up">
+            <div className="card-body">
+              <span className="card-title">YOUR DETAILS</span>
+              <div className="row">
+                <div className="col-md-12 col-sm-6">
+                  <p>Name: <span>{name}</span></p>
+                </div>
+                <div className="col-md-12 col-sm-6">
+                  <p>Email: <span>{email}</span></p>
+                </div>
+                <div className="col-md-12 col-sm-6">
+                  <p>Address: <span>{address}</span></p>
+                </div>
 
-      // const logOut = () => {
-      //       localStorage.removeItem("token")
-      //       // Login()
-      //       loginFunction()
-      //       history.push("/")
+                <div className="col-md-12 col-sm-6">
+                <Button className="btn-update" href="/UpdateProfile">Update Profile</Button>
+                </div>
 
-      // }
-      return (
-            <Container component="main" maxWidth="xs">
-                  <div className="card user-detils">
-                    <div className="row">
-                    <div className="col-lg-4 col-sm-6" data-aos="fade-up">
-                          <ul className="user-list">
-                                <h3 className="user-title">My Account</h3>
-                                <a href="/Order"><li> My Orders</li></a>
-                               < Link to= "/MyAccount">
-                               <li>My Profile</li></Link>
-                                <a href="/Address"><li>My Address Book</li></a>
-                                <a href="/Credit"><li>Credit / Debit Cards</li></a>
-                          </ul>
-                     </div>
-                     <div className="col-lg-8 col-sm-6" data-aos="fade-up">
-                           <div className="card-body">
-                                 <span className="card-title">Your recent orders</span>
-                                 <p>You don’t have any recent orders. For your purchase history.</p>
-                           </div>
-                           <div className="card-body">
-                           <span className="card-title" >Your Details</span>
-                                 <div className="row">
-                                <div className="col-lg-4 col-sm-6" ><span>Name: </span> {name} </div>
-                                <div className="col-lg-6 col-sm-6" ><span>Email Address:  </span> {email}</div>
-                                <div className="col-lg-6 col-sm-6" ><span> Address:  </span>{address}</div>
-                                 </div>
-                                 <Button   variant="primary" type="submit" onClick={() => history.push(`/update/${id}`)}>Update</Button>
-                                
-                           
-                                
-                                 
-                           </div>
-                     </div>
-                     </div>
-                     </div>
-            </Container>
-      )
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </Container>
+
+  )
+
 
 }

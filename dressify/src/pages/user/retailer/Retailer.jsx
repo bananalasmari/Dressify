@@ -8,7 +8,7 @@ import { AiOutlineTags } from 'react-icons/ai';
 import {useHistory} from "react-router-dom";
 import axios from "axios";
 import {useParams} from 'react-router-dom'
-import ItemCard4 from "/Users/manal/Desktop/SEI/projects/Project-4/dressify/src/components/itemCards/itemCard4.jsx";
+import ItemCard4 from "../../../components/itemCards/itemCard4";
 
 export default function Retailer ({user ,loginFunction , test }) {
 

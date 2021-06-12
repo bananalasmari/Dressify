@@ -1,11 +1,6 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel'
 
-const slideImages = [
-      'https://media.gucci.com/content/HeroRegularMedium_1536x772/1619619306/HeroRegularMedium_OUVERTURE-21-082_001_Default.jpg',
-      'https://media.gucci.com/content/HeroBigStandard_3200x1520/1621243804/HeroBigStandard_OUVERTURE-21-044_001_Default.jpg',
-      'https://ounass-prod.atgcdn.ae/contentful/b3xlytuyfm3e/2pNDCdoG7QRLk2SInBJpid/57562e01007eb3202f1f16f809e1f0e8/WW_Trending3_Shoes_Bags_Web_En_WK20.jpg?fm=webp&q=75'
-    ];
 
 export default function Carousels () {
       return (
@@ -22,28 +17,22 @@ export default function Carousels () {
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3 data-aos="fade-up">BUY. SELL.</h3>
+            
+            <h3 data-aos="fade-up">DISCOVER UNIQUE FASHION</h3>
             <p data-aos="fade-up">Designer. Preloved. Vintage. Streetwear. Sneakers.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100" 
-            src="https://media.gucci.com/content/HeroBigStandard_3200x1520/1621243804/HeroBigStandard_OUVERTURE-21-044_001_Default.jpg"
+            src="https://media.gucci.com/content/HeroRegularStandard_3200x1350/1619622907/HeroRegularStandard_OUVERTURE-21-006_001_Default.jpg"
             alt="Second slide"
           />
       
           <Carousel.Caption>
-            <h3>DISCOVER UNIQUE FASHION</h3>
-            <p>Discover independent brands making waves and the creators behind them. </p>
+          <h3 data-aos="fade-up">BUY. SELL.</h3>
+            <p data-aos="fade-up">Discover independent brands making waves and the creators behind them. </p>
           </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100" 
-            src="https://ounass-prod.atgcdn.ae/contentful/b3xlytuyfm3e/2pNDCdoG7QRLk2SInBJpid/57562e01007eb3202f1f16f809e1f0e8/WW_Trending3_Shoes_Bags_Web_En_WK20.jpg?fm=webp&q=75"
-            alt="Third slide"
-          />
         </Carousel.Item>
       </Carousel>
        
