@@ -10,7 +10,6 @@ export default function ItemCard3(props) {
     const [show, setShow] = useState(false);
     const handleClose = () => {
     setShow(false);
-    window.location.reload();  
   }
     const handleShow = () => setShow(true);
     const history = useHistory();
@@ -24,6 +23,7 @@ export default function ItemCard3(props) {
       .delete(`http://localhost:4000/api/items/${props.item._id}`)
       .then((data) => console.log(data))
       .catch((error) => console.log(error));  
+      window.location.reload();  
   };
   return (
     <div className="col-lg-4 col-sm-6" data-aos="fade-up">
