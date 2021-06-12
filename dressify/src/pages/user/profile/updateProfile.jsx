@@ -1,6 +1,9 @@
 import React , {useState , useEffect} from 'react';
 
 
+import withReactContent from 'sweetalert2-react-content'
+
+
 import Form from 'react-bootstrap/Form';
 
 import Button from 'react-bootstrap/Button';
@@ -105,8 +108,15 @@ console.log(data)
       {name  , email  , address })
       .then( data =>{
       console.log(data)
-      // localStorage.setItem("token",data.data.token)
+      setFlage(true)
+      setMessage(data.data.message)
+      setSuccess(true)
+      setTimeout(() => history.push('/MyAccount'), 2000)
+      // history.push('')
     }).catch(err=>{
+      setMessage(err.response.data.message)
+      setFlage(true)
+      setSuccess(false)
 console.log(err)
 
 
@@ -114,16 +124,20 @@ console.log(err)
      
   }
 
-useEffect(() => {
-  if (user) {
-    console.log(user.name)
-    setEmail(user.email);
-    setName(user.name);
-    setAddress(user.address);
-  }
- 
-}, [user])
+  useEffect(() => {
+    console.log(data)
+    
+  axios.get(`http://localhost:4000/api/v1/user/UserDetails/${data}`)
 
+    .then((data) => {
+     setName(data.data.name);
+   
+     setAddress(data.data.address);
+     setEmail(data.data.email);
+    //  userDetail(data.data);
+    })
+    .catch((error) => console.error(error));
+}, []);
    
   
     return (
@@ -132,10 +146,10 @@ useEffect(() => {
 
 
       <Container component="main" maxWidth="xs">
-      {/* { flage && 
-      ( success ? <Toast className={classes.success} severity="success" autoClose={5000}  >{message}</Toast> : 
+      { flage && 
+      ( success ? <Toast className={classes.success} severity="success"  >{message} </Toast> : 
     <Toast className={classes.danger} severity="error">{message}</Toast> )
- }  */}
+ } 
       
     
 

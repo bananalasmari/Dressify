@@ -74,7 +74,11 @@ export default function UpdateRetailer(props) {
 
    
     
-    
+  const [flage, setFlage] = useState(false)
+
+  const [success, setSuccess] = useState(false)
+  // const [show, setShow] = useState(false);
+  const [message, setMessage] = useState("")
    
   
 
@@ -91,7 +95,7 @@ const [User, setUser] = useState('');
   
   //   const [success ,setSuccess] = useState(false)
     // const [show, setShow] = useState(false);
-    const [message ,setMessage] = useState("")
+  
     
   
 
@@ -109,26 +113,28 @@ const [items, setItems] = useState([]);
    
       e.preventDefault()
      
-  
-
-
       axios.post('http://localhost:4000/api/v1/user/updateRetailer/' + Userid, 
       {name  , email  , address , Image})
     
       .then( data =>{
-   
-
+      
+        setFlage(true)
+        setMessage(data.data.message)
+        setSuccess(true)
         console.log("crashinggg")
       console.log(data)
 
       // localStorage.setItem("token", token)
-      
+      history.push('/MyAccount')
       // loginFunction()
     //   history.push("/")
       // localStorage.setItem("token",data.data.token)
     }).catch(err=>{
 console.log(err)
-
+setMessage(err.response.data.message)
+setFlage(true)
+setSuccess(false)
+console.log(err)
 
     })
      
@@ -149,10 +155,11 @@ useEffect(() => {
       .then((data) => {
        setName(data.data.name);
      
-     setImage(data.data.Image)
-     console.log(data.data.Image)
+      setImage(data.data.Image)
+       console.log(data.data.Image)
        setAddress(data.data.address);
        setEmail(data.data.email);
+      
       //  userDetail(data.data);
       })
  
@@ -164,10 +171,10 @@ useEffect(() => {
 
         
      <Container component="main" maxWidth="xs">
-      {/* { flage && 
+      { flage && 
       ( success ? <Toast className={classes.success} severity="success" autoClose={5000}  >{message}</Toast> : 
     <Toast className={classes.danger} severity="error">{message}</Toast> )
- }  */}
+ } 
       
       
      
@@ -175,7 +182,7 @@ useEffect(() => {
 
 
 
-   <Form style={{position: "fixed"}}   onSubmit={(e) => userOnsubmitHandler(e)} encType='multipart/form-data'>
+   <Form style={{position: "fixed"}}   onSubmit={(e) => userOnsubmitHandler(e)} >
        
  
 

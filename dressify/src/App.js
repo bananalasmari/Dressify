@@ -6,11 +6,7 @@ import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import Home from "./components/home/Home";
 import Profile from "./pages/user/profile/Profile";
-<<<<<<< HEAD
-import updadeProfile from "./pages/user/profile/updateProfile.jsx";
-=======
-import UpdateProfile from "./pages/user/profile/UpdateProfile";
->>>>>>> 6e40ac0f9ccbbc8ca7e2cb068b1598d94b4fac1c
+import UpdateProfile from "/Users/manal/Desktop/SEI/projects/Project-4/dressify/src/pages/user/profile/updateProfile.jsx";
 import Order from "./pages/user/profile/Order";
 import Credit from "./pages/user/profile/Credit";
 import ItemPost from "./pages/user/Item/ItemPost";
@@ -18,23 +14,13 @@ import ItemDetails from "./pages/user/Item/ItemDetails";
 import Retailer from "./pages/user/retailer/Retailer";
 import Items from "./pages/user/Item/Items";
 import "./components/FontAwesomeIcon";
-<<<<<<< HEAD
-import updateRetailer from './pages/user/retailer/updateRetailer'
-=======
->>>>>>> 6e40ac0f9ccbbc8ca7e2cb068b1598d94b4fac1c
 import Protect from "./components/Protect";
 import ResetPassword from "./components/ResetPassword";
 import NewPassword from "./components/NewPassword";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import updateRetailer from "/Users/manal/Desktop/SEI/projects/Project-4/dressify/src/pages/user/retailer/updateRetailer.jsx"
 
 import ItemsSeller from "./pages/user/Item/ItemsSeller"
-<<<<<<< HEAD
-import Register from "./pages/user/registration/Register";
-import { isExpired, decodeToken } from "react-jwt";
-import { useEffect, useState } from "react";
-import EditItem from "./pages/user/Item/EditItem";
-// import MyAccount from "./pages/user/profile/MyAccount.jsx"
-=======
 import Login from "./pages/user/registration/Login";
 // import ItemsSeller from "./pages/user/Item/ItemsSeller"
 import Register from ".//pages/user/registration/Register";
@@ -44,7 +30,6 @@ import EditItem from "./pages/user/Item/EditItem";
 import Cart from './pages/user/cart/Cart';
 import Checkout from './pages/user/cart/Checkout';
 
->>>>>>> 6e40ac0f9ccbbc8ca7e2cb068b1598d94b4fac1c
 function App() {
   const [user, setUser] = useState({});
   const [isLogin, setIsLogin] = useState(false);
@@ -83,9 +68,9 @@ function App() {
                 path="/login"
                 render={() => <Login loginFunction={loginFunction} />}
               />
-              <Route path="/signIn" component={Register} />
+              <Route  component={Register} path="/signIn"  />
               <Route component={Profile} path={"/MyAccount"} />
-              <Protect component={updadeProfile} path={"/update/:id"} isLogin ={isLogin} user={user} loginFunction={loginFunction}/>
+              <Protect component={UpdateProfile} path={"/update/:id"} isLogin ={isLogin} user={user} loginFunction={loginFunction}/>
               <Route component={Order} path={"/Order"} />
               <Route component={Credit} path={"/Credit"} />
               <Route component={ItemPost} path={"/ItemPost"} />
