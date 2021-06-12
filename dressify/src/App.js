@@ -18,6 +18,7 @@ import Protect from "./components/Protect";
 import ResetPassword from "./components/ResetPassword";
 import NewPassword from "./components/NewPassword";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+
 import ItemsSeller from "./pages/user/Item/ItemsSeller"
 import Login from "./pages/user/registration/Login";
 // import ItemsSeller from "./pages/user/Item/ItemsSeller"
@@ -76,8 +77,12 @@ function App() {
               <Route component={Retailer} path={"/Retailer"} />
               <Route component={EditItem} path={"/EditItem/:id"} />
               <Route component={ItemsSeller} path={"/ItemsBySeller"} />
+
               <Route component={Cart} path={"/Cart"}/>
               <Route component={Checkout} path={"/Checkout"}/>
+
+      
+
               <Route path="/ResetPassword" component={ResetPassword} />
               <Route exact path="/reset/:token">
               <NewPassword />
