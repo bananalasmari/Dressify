@@ -38,9 +38,11 @@
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-toast-notifications": "^2.4.4",
     "react-toastify": "^7.0.4",
     "react-toastr": "^3.0.0",
     "styled-components": "^5.3.0",
+    "sweetalert": "^2.1.2",
     "sweetalert2": "^11.0.17",
     "sweetalert2-react-content": "^4.0.1",
     "web-vitals": "^1.1.2"
