@@ -43,6 +43,7 @@ function App() {
     let decodeuser = decodeToken(token);
     console.log(decodeuser)
     if (decodeuser?.user && !isExpired(token)) {
+      console.log(decodeuser.user)
       setUser(decodeuser.user);
       setIsLogin(true);
     } else {
@@ -67,17 +68,17 @@ function App() {
                 render={() => <Login loginFunction={loginFunction} />}
               />
               <Route path="/signIn" component={Register} />
-              <Protect component={Profile} path={"/Profile"} isLogin ={isLogin} user ={user} loginFunction={loginFunction}/>
-              <Protect component={UpdateProfile} path={"/UpdateProfile"} isLogin ={isLogin} user ={user} loginFunction={loginFunction}/>
+              <Route component={Profile} path={"/MyAccount"} />
+              <Protect component={UpdateProfile} path={"/update/:id"} isLogin ={isLogin} user={user} loginFunction={loginFunction}/>
               <Route component={Order} path={"/Order"} />
               <Route component={Credit} path={"/Credit"} />
               <Route component={ItemPost} path={"/ItemPost"} />
               <Route component={ItemDetails}  path={"/Items/:id"} />
               <Route component={Items} excat path={"/Items"} />
-              <Route component={Retailer} path={"/Retailer"} />
+              <Route component={Retailer} path={"/Retailer"}  />
               <Route component={EditItem} path={"/EditItem/:id"} />
               <Route component={ItemsSeller} path={"/ItemsBySeller"} />
-
+              {/* <Route component={updateRetailer} path={"/updateRetailer"} /> */}
               <Route component={Cart} path={"/Cart"}/>
               <Route component={Checkout} path={"/Checkout"}/>
 

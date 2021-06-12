@@ -68,13 +68,13 @@ export default function Navigation(props, loginFunction) {
                )}
 
 
- { (!props.isLogin ?  <Button variant="outline-light" onClick={() => history.push('/login')} label="login" >Login</Button>:
+{ (!props.isLogin ?  <Button variant="outline-light" onClick={() => history.push('/login')} label="login" >Login</Button>:
                
-              [
-               <Button  id="profile-btn" label="Profile" variant="outline-light" onClick={() => history.push('/profile')}>Profile</Button>,
-               <Button  style={{ fontSize: 26, border: 0 }}label="Profile" variant="outline-light" onClick={()=> logOut()}><FiLogOut/></Button> 
-              ] 
-  )}
+               [
+                <Button  id="profile-btn" label="Profile" variant="outline-light" onClick={() => history.push('/MyAccount')}>Profile</Button>,
+                <Button  style={{ fontSize: 26, border: 0 }}label="Profile" variant="outline-light" onClick={()=> logOut()}><FiLogOut/></Button> 
+               ] 
+   )}
             </div>
 
 

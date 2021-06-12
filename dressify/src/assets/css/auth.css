@@ -62,6 +62,9 @@ h5 {
      width: 90%;
  }
 
+.card-body {
+    text-align: center;
+}
  .auth-title {
       color: #c1536b;
       padding: 12px;
@@ -69,6 +72,7 @@ h5 {
       font-weight: bold;
       letter-spacing: 2px;
       padding-bottom: 7px;
+      text-align: center;
   }
 
   span {

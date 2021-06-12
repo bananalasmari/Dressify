@@ -130,7 +130,7 @@ export default function Profile({ user, loginFunction, test }) {
             <ul className="user-list">
               <h3 className="user-title">My Account</h3>
               <a href="/Order"><li>My Orders</li></a>
-              <a href="/Profile"><li>My Profile</li></a>
+              <a href="/MyAccount"><li>My Profile</li></a>
               <a href="/Credit"><li>Credit / Debit Cards</li></a>
             </ul>
           </div>
