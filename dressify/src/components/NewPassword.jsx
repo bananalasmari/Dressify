@@ -30,10 +30,7 @@ export default function NewPassword(props) {
 
   const OnsubmitHandler = (e)=>{
     e.preventDefault()
-    // const data ={
-    //    password : user.password. ,
-    //     token : this.props.match.params.token,
-    // }
+ 
     console.log(token)
     console.log("click")
     console.log("password :"+ user.password)
