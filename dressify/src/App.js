@@ -81,7 +81,7 @@ function App() {
               <Route component={Retailer} path={"/Retailer"}  />
               <Route component={EditItem} path={"/EditItem/:id"} />
               <Route component={ItemsSeller} path={"/ItemsBySeller"} />
-              {/* <Route component={updateRetailer} path={"/updateRetailer"} /> */}
+              <Route component={updateRetailer} path={"/updateRetailer"} />
               <Route component={Cart} path={"/Cart"}/>
               <Route component={Checkout} path={"/Checkout"}/>
 
