@@ -6,9 +6,7 @@ import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import Home from "./components/home/Home";
 import Profile from "./pages/user/profile/Profile";
-
 import UpdateProfile from "./pages/user/profile/updateProfile";
-
 import Order from "./pages/user/profile/Order";
 import Credit from "./pages/user/profile/Credit";
 import ItemPost from "./pages/user/Item/ItemPost";

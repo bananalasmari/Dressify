@@ -48,10 +48,10 @@ export default function Navigation(props, loginFunction) {
                      </NavDropdown>
 
                      <Nav.Item>
-                        <Nav.Link>Men</Nav.Link>
+                        <Nav.Link href="/items">Men</Nav.Link>
                      </Nav.Item>
                      <Nav.Item>
-                        <Nav.Link>Kids</Nav.Link>
+                        <Nav.Link href="/items">Kids</Nav.Link>
                      </Nav.Item>
                   </Nav>
                </Navbar.Collapse>

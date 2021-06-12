@@ -46,7 +46,7 @@
 * moqups used for designing the Wireframe
 
 ---
-## application architecture
+## Application architecture
 ### ER diagram
 
 ![ ](/dressify/src/assets/imges/Dressify-ERD.png)
