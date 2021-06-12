@@ -49,7 +49,7 @@ export default function Navigation(props) {
                <Button variant="dark" onClick={() => history.push('/signIn')}>SignUp</Button>
                {' '}
 
-
+               {console.log("Is logged"+props.isLogin)}
  { (!props.isLogin ?  <Button variant="outline-light" onClick={() => history.push('/login')} label="login" >Login</Button>:
                
                <Button  label="Profile" variant="outline-light" onClick={() => history.push('/MyAccount')}>My Account</Button>

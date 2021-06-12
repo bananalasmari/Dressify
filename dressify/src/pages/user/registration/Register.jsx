@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 // import { Col, Row, Button, Form, FormGroup, Label, Input } ;
-
 import Form from 'react-bootstrap/Form';
-
 import Button from 'react-bootstrap/Button';
 import axios from "axios";
 import FormControl from 'react-bootstrap/FormControl'
-
 import 'react-toastify/dist/ReactToastify.css';
 import Container from 'react-bootstrap/Container';
 import { useHistory } from "react-router-dom";

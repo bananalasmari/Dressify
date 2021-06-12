@@ -3,11 +3,13 @@ import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
+import { useHistory } from "react-router-dom";
 
 export default function EditItem(props) {
     const itemId = props.match.params.id;
     const [item, setItem] = useState([]);
     const [validated, setValidated] = useState(false);
+    const history = useHistory();
 
     useEffect(() => {
         axios
@@ -45,6 +47,8 @@ export default function EditItem(props) {
           })
           .then((data) => console.log(data))
           .catch((error) => console.log(error));
+      history.push('/ItemsBySeller');
+      window.location.reload();  
       }
       setValidated(true);
     };
