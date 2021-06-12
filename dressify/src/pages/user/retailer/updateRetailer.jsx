@@ -180,9 +180,9 @@ useEffect(() => {
      
 
 
+      <div className="card card-post" data-aos="fade-up">
 
-
-   <Form style={{position: "fixed"}}   onSubmit={(e) => userOnsubmitHandler(e)} >
+   <Form   onSubmit={(e) => userOnsubmitHandler(e)} >
        
  
 
@@ -257,6 +257,7 @@ useEffect(() => {
         onClick={()=> logOut()}
       variant="outlined">log Out </Button> */}
  </Form>
+ </div>
  </Container> 
 
     )
