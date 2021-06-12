@@ -53,7 +53,7 @@ const useStyles = createUseStyles({
     
     }
     })
-export default function Profile({user ,loginFunction , test }) {
+export default function UpdateProfile({user ,loginFunction , test }) {
 
 
   console.log(user)
@@ -198,9 +198,7 @@ useEffect(() => {
 
 </Form.Group>
 
-   <Button variant="primary" type="submit"  >
-    update
-   </Button>
+<Button className="btn-update" type="submit">Update Profile</Button>
    {/* <Button 
         onClick={()=> logOut()}
       variant="outlined">log Out </Button> */}
