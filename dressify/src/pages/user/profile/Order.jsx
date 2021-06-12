@@ -26,7 +26,6 @@ export default function Order({ user, Login }) {
                                           <h3 className="user-title">My Account</h3>
                                           <a href="/Order"><li>My Orders</li></a>
                                           <a href="/Profile"><li>My Profile</li></a>
-                                          <a href="/Address"><li>My Address Book</li></a>
                                           <a href="/Credit"><li>Credit / Debit Cards</li></a>
                                     </ul>
                               </div>

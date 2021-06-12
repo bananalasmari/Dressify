@@ -5,12 +5,23 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { useHistory } from 'react-router-dom'
 import '../assets/css/navbar.css';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 // import NavbarScroll from '../assets/js/NavbarScroll'
+import { FiLogOut } from "react-icons/fi";
 
 
 
-export default function Navigation(props) {
+
+
+export default function Navigation(props, loginFunction) {
    const history = useHistory()
+
+   const logOut = () => {
+      localStorage.removeItem("token")
+      loginFunction()
+      history.push("/")
+
+  }
 
    const [navbar, setNavbar] = useState(false);
 
@@ -46,13 +57,18 @@ export default function Navigation(props) {
                   </div>
                </div>
                <span class="w-100"></span>
-               <Button variant="dark" onClick={() => history.push('/signIn')}>SignUp</Button>
-               {' '}
+               { (!props.isLogin ? <Button variant="dark" onClick={() => history.push('/signIn')}>SignUp</Button> :
+               <Button  style={{ fontSize: 26, border: 0 }}label="Profile" variant="outline-light" onClick={() => history.push('/Cart')}><AiOutlineShoppingCart/></Button> 
+    
+               )}
 
-               {console.log("Is logged"+props.isLogin)}
+
  { (!props.isLogin ?  <Button variant="outline-light" onClick={() => history.push('/login')} label="login" >Login</Button>:
                
-               <Button  label="Profile" variant="outline-light" onClick={() => history.push('/profile')}>profile</Button>
+              [
+               <Button  id="profile-btn" label="Profile" variant="outline-light" onClick={() => history.push('/profile')}>Profile</Button>,
+               <Button  style={{ fontSize: 26, border: 0 }}label="Profile" variant="outline-light" onClick={()=> logOut()}><FiLogOut/></Button> 
+              ] 
   )}
             </div>
 

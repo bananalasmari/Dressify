@@ -84,7 +84,7 @@ function App() {
               </Route>
               <Route exact path="/Allitems/:id" component={ItemDetails} />
             </Switch>
-            {/* <Footer /> */}
+            <Footer />
     </BrowserRouter>
   );
 }
