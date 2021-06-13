@@ -142,7 +142,7 @@ console.log(err)
     .catch((error) => console.error(error));
 }, []);
    
-  
+localStorage.setItem("name", name);
     return (
   
         

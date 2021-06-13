@@ -41,8 +41,12 @@ export default function ItemPost() {
         image: item.image,
         sellerID: localStorage.getItem("user_id")
       })
-      .then((data) => console.log(data))
+      .then((data) => console.log("data posted"))
+      
       .catch((error) => console.log(error));
+
+
+      
       history.push('/ItemsBySeller');
       window.location.reload();  
       }

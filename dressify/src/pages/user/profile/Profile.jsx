@@ -36,8 +36,9 @@ export default function Profile(props) {
             console.log(id)
 
             axios.get(`http://localhost:4000/api/v1/user/UserDetails/${id}`)
-
+     
                   .then((data) => {
+                        console.log("dressify")
                         setName(data.data.name);
                         setAddress(data.data.address);
                         setEmail(data.data.email);
@@ -66,27 +67,33 @@ export default function Profile(props) {
                                     <ul className="user-list">
                                           <h3 className="user-title">My Account</h3>
                                           {(type == "retailer" ? 
-                                                < Link href="/itempost"><li>Post Item</li></Link> :
-                                                <Link href="/Order"><li> My Orders</li></Link>
+                                                < Link to="/ItemPost"><li>Post Item</li></Link> :
+                                                <Link to="/Order"><li> My Orders</li></Link>
                                                 )}
-                                          
+                                           {/* {(type == "customer" ? 
+                                           <Link href="/Order"><li> My Orders</li></Link>
+                                                :
+                                                < Link href="/ItemPost"><li>Post Item</li></Link>
+                                                )} */}
                                           < Link to="/MyAccount"><li>My Profile</li></Link>
                                           <a href="/Credit"><li>Credit / Debit Cards</li></a>
                                     </ul>
                               </div>
                               <div className="col-lg-8 col-sm-6" data-aos="fade-up">
-                                    <div className="card-body">
-                                          <span className="card-title">Your recent orders</span>
-                                          <p>You don’t have any recent orders. For your purchase history.</p>
-                                    </div>
+                                   
                                     <div className="card-body">
                                           <span className="card-title" >Your Details</span>
                                           <div className="row">
-                                                <div className="col-lg-4 col-sm-6" ><span>Name: </span> {name} </div>
-                                                <div className="col-lg-6 col-sm-6" ><span>Email Address:  </span> {email}</div>
-                                                <div className="col-lg-6 col-sm-6" ><span> Address:  </span>{address}</div>
+                                                <div className="col-lg-12 col-sm-6" ><span>Name: </span> {name} </div>
+                                                <div className="col-lg-12 col-sm-6" ><span>Email Address:  </span> {email}</div>
+                                                <div className="col-lg-12 col-sm-6" ><span> Address:  </span>{address}</div>
                                           </div>
-                                          <Button variant="primary" type="submit" onClick={() => history.push(`/update/${id}`)}>Update</Button>
+                                          {(type == "retailer" ? 
+                                               <Button variant="primary" type="submit" onClick={() => history.push(`/updateRetailer`)}>Update</Button> :
+                                                <Button variant="primary" type="submit" onClick={() => history.push(`/update/${id}`)}>Update</Button>
+                                                )}
+                                          
+                                          
 
 
 

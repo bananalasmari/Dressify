@@ -92,7 +92,7 @@ export default function Register() {
     e.preventDefault()
     axios.post('http://localhost:4000/api/v1/user/', {
       name: user.name, email: user.email, password: user.password, address: user.address, 
-      // type: user.type
+      type: user.type
     }).then(data => {
       console.log(data)
       setFlage(true)
@@ -109,23 +109,9 @@ export default function Register() {
     })
   }
   console.log(user.type)
-  const testList = [
-    {
-      id: 1,
-      title: 'Success',
-      description: 'This is a success toast component',
-      backgroundColor: '#5cb85c',
-      icon: checkIcon
-    },
-    {
-      id: 2,
-      title: 'Danger',
-      description: 'This is an error toast component',
-      backgroundColor: '#d9534f',
-      icon: errorIcon
-    },
-];
 
+
+  
   return (
 
     

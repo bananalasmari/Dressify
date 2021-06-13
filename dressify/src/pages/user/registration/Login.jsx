@@ -126,7 +126,7 @@ export default function Login(props) {
                 Login
               </Button>
               <p className="forgot-password text-right">
-                Forgot <a href="#">password?</a>
+              <a href="/ResetPassword">  Forgot password?</a>
               </p>
               <p className="text-left">
                 <a href="/">Back</a>

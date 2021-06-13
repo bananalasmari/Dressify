@@ -39,7 +39,7 @@ export default function ItemCard() {
                                                <Card.Text className="item-price">
                                                 3.900 SAR
                                                </Card.Text>
-                                          <Button variant="primary">More Info</Button>
+                                               <Button variant="primary" href="/items">More Info</Button>
                                     </Card.Body>
                               </Card>
                         </div>
@@ -56,7 +56,7 @@ export default function ItemCard() {
                                                <Card.Text className="item-price">
                                                 2.800 SAR
                                                </Card.Text>
-                                          <Button variant="primary">More Info</Button>
+                                               <Button variant="primary" href="/items">More Info</Button>
                                     </Card.Body>
                               </Card>
                         </div>

@@ -82,7 +82,7 @@ useEffect(() => {
 
 
       axios
-      .get(`/api/items/seller/${id}`)
+      .get(`http://localhost:4000/api/items/seller/${id}`)
       .then((data) => {
         setItems(data.data);
       })
@@ -103,22 +103,26 @@ useEffect(() => {
                         <img class="retailer-logo" src={Image} 
                      
                         />
+                        
                     </div>
                   
                     <div className="col-lg-8 col-sm-6" data-aos="fade-up">
                         <div className="post-details">
-                        <Link to="/ItemPost"  style ={{color: '#a87a63' , paddingLeft: 12}} >
+                
+                      
+                            <h2 className="post-title">{name}</h2>
+                            <p style={{ color: '#2d2d2d', fontWeight: 200, fontSize: 15 }}><span>@{name}</span></p>
+                            {/* <p style={{ color: '#2d2d2d', fontWeight: 800, fontSize: 15 }} ><AiOutlineTags/> <span>3</span> Sold</p> */}
+                            <p>Vintage & Hype | Bundle deals available | 💨 Fast shipping 💨</p>
+                            <Link to="/ItemPost"  style ={{color: '#a87a63' , paddingLeft: 12, fontSize:18}} >
                 {"Add Items"}
               </Link>
-              {"  "} 
+              &nbsp;
+                |
+                &nbsp;
               <Link to="/ItemsBySeller"  style ={{color: '#a87a63'}} >
                 {"Edit Items"}
               </Link>
-                      
-                            <h2 className="post-title">{name}</h2>
-                            <p style={{ color: '#2d2d2d', fontWeight: 200, fontSize: 15 }}><span>@{}</span></p>
-                            <p style={{ color: '#2d2d2d', fontWeight: 800, fontSize: 15 }} ><AiOutlineTags/> <span>33</span> Sold</p>
-                            <p>Vintage & Hype | Bundle deals available | 💨 Fast shipping 💨</p>
                             <ListGroup variant="flush">
                                 <ListGroup.Item><h5>Selling</h5></ListGroup.Item>                     
                             </ListGroup>

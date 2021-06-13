@@ -187,8 +187,8 @@ export default function UpdateRetailer(props) {
 
 
           <Form.Group>
-          <Form.Label>Profile link:</Form.Label>
-            <Form.Control type="text" name="image" placeholder="Enter Profile link" onChange={(e) => setImage(e.target.value)} />
+          <Form.Label>Profile Image:</Form.Label>
+            <Form.Control type="text" name="image" placeholder="Enter Profile Image" onChange={(e) => setImage(e.target.value)} />
             {/* onChange={(e) => itemChangeHandler(e)} */}
           </Form.Group>
 

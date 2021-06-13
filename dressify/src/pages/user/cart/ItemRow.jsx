@@ -7,7 +7,7 @@ export default function ItemRow(props) {
   console.log(props.item._id);
   const handleDelete = () =>  {
     axios
-      .delete(`/api/cart/${userId}/${props.item._id}`)
+      .delete(`http://localhost:4000/api/cart/${userId}/${props.item._id}`)
       .then((data) => console.log(data))
       .catch((error) => console.log(error));  
        

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory , Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import "../../../assets/css/profile.css";
@@ -44,15 +44,17 @@ export default function Order({ user, Login }) {
           <div className="col-lg-4 col-sm-6" data-aos="fade-up">
             <ul className="user-list">
               <h3 className="user-title">My Account</h3>
-              <a href="/Order">
+              < Link to= "/Order">
+                <li> My Orders</li></Link>
+              {/* <a href="/Order">
                 <li>My Orders</li>
-              </a>
-              <a href="/Profile">
-                <li>My Profile</li>
-              </a>
-              <a href="/Credit">
-                <li>Credit / Debit Cards</li>
-              </a>
+              </a> */}
+              < Link to= "/MyAccount">
+                
+                <li>My Profile</li></Link>
+                < Link to= "/Credit">
+                <li> Credit / Debit Cards</li></Link>
+              
             </ul>
           </div>
           <div className="col-lg-8 col-sm-6" data-aos="fade-up">

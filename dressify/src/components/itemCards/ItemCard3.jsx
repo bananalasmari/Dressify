@@ -20,7 +20,7 @@ export default function ItemCard3(props) {
   const onClickDelete = (e) =>  {
     e.preventDefault();
     axios
-      .delete(`/api/items/${props.item._id}`)
+      .delete(`http://localhost:4000/api/items/${props.item._id}`)
       .then((data) => console.log(data))
       .catch((error) => console.log(error));  
       window.location.reload();  

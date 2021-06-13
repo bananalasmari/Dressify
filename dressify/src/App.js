@@ -23,7 +23,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import updateRetailer from "./pages/user/retailer/updateRetailer.jsx"
 import ItemsSeller from "./pages/user/Item/ItemsSeller"
 import Login from "./pages/user/registration/Login";
-// import ItemsSeller from "./pages/user/Item/ItemsSeller"
+
 import Register from ".//pages/user/registration/Register";
 import { isExpired, decodeToken } from "react-jwt";
 import { useEffect, useState } from "react";

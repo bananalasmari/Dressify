@@ -15,7 +15,6 @@ import Container from 'react-bootstrap/Container'
 export default function NewPassword(props) {
   const history = useHistory()
 
- 
 
   const [user , setUser] = useState({})
   
@@ -34,15 +33,17 @@ export default function NewPassword(props) {
     console.log(token)
     console.log("click")
     console.log("password :"+ user.password)
-    axios.post('/api/v1/user/reset/'+ token ,{ 
+    axios.post('http://localhost:4000/api/v1/user/reset/'+ token ,{ 
         "password" : user.password })
-    
+      
     
     .then( data =>{
+    
     //  props.loginFunction()
-      console.log(data+ "hahahaha")
+      console.log("dressify")
  
     localStorage.setItem("token", data.data.token);
+    history.push('/login')
     //  history.push('/signIn')
     }).catch(err =>{
       console.log(err.response)
@@ -50,7 +51,8 @@ export default function NewPassword(props) {
        }
     return (
         <Container component="main" maxWidth="xs" >
-        <Form style={{position: "fixed"}} onSubmit ={(e) =>OnsubmitHandler(e)} >
+           <div className="card card-auth">
+        <Form  onSubmit ={(e) =>OnsubmitHandler(e)} >
         <Form.Group controlId="formBasicEmail">
           <Form.Label>update Password</Form.Label>
           <FormControl type="password" placeholder="Enter password" 
@@ -70,10 +72,11 @@ export default function NewPassword(props) {
         </Form.Group>
       
       
-        <Button variant="primary" type="submit" >
+        <Button variant="primary" type="submit"  >
           Reset password
         </Button>
       </Form>
+      </div>
       </Container>
 );
 }

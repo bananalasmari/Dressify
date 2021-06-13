@@ -23,7 +23,7 @@ export default function ResetPassword() {
     e.preventDefault()
     console.log("click")
     console.log("user email: "+user.email )
-    axios.post('/api/v1/user/reset-password',{ "email" : user.email })
+    axios.post('http://localhost:4000/api/v1/user/reset-password',{ "email" : user.email })
     .then( data =>{
       console.log(data)
     
@@ -33,8 +33,10 @@ export default function ResetPassword() {
     })
        }
     return (
+
       <Container component="main" maxWidth="xs" >
-      <Form style={{position: "fixed"}} onSubmit ={(e) =>OnsubmitHandler(e)}>
+         <div className="card card-auth">
+      <Form  onSubmit ={(e) =>OnsubmitHandler(e)}>
       <Form.Group controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <FormControl type="email" placeholder="Enter email" 
@@ -59,7 +61,9 @@ export default function ResetPassword() {
       <Button variant="primary" type="submit" >
         Submit
       </Button>
+     
     </Form>
+    </div>
     </Container>
 );
 }

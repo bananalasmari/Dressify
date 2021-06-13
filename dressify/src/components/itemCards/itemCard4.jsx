@@ -17,7 +17,7 @@ export default function itemCard4(props) {
                         <Card.Text className="item-price">
                         {props.item.price} SR
                                                </Card.Text>
-                        <Button variant="primary">More Info</Button>
+                      
                     </Card.Body>
                 </Card>
             </div>

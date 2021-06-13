@@ -4,7 +4,7 @@ import logo from '../assets/logo.png';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Nav from 'react-bootstrap/Nav';
-import { useHistory } from 'react-router-dom'
+import { useHistory , Link } from 'react-router-dom'
 import '../assets/css/navbar.css';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 // import NavbarScroll from '../assets/js/NavbarScroll'
@@ -24,6 +24,7 @@ export default function Navigation(props, loginFunction) {
 
    }
 
+   const type = localStorage.getItem("type")
    const [navbar, setNavbar] = useState(false);
 
    const ChangeBackground = () => {
@@ -62,10 +63,13 @@ export default function Navigation(props, loginFunction) {
                   </div>
                </div>
                <span class="w-100"></span>
-               {(!props.isLogin ? <Button variant="dark" onClick={() => history.push('/signIn')}>SignUp</Button> :
+               {!props.isLogin ? <Button variant="dark" onClick={() => history.push('/signIn')}>SignUp</Button> :
+               [(type == "retailer" ?  <Button id="profile-btn" label="Profile" style = {{width : 400 }}variant="outline-light" onClick={() => history.push('/Retailer')}>View Page</Button> :
+
                   <Button style={{ fontSize: 26, border: 0 }} label="Profile" variant="outline-light" onClick={() => history.push('/Cart')}><AiOutlineShoppingCart /></Button>
 
-               )}
+                )]}
+
 
 
                {(!props.isLogin ? <Button variant="outline-light" onClick={() => history.push('/login')} label="login" >Login</Button> :
@@ -77,7 +81,7 @@ export default function Navigation(props, loginFunction) {
                )}
             </div>
 
-
+          
          </Navbar>
       </div>
 

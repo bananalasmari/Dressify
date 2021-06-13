@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {useState, Component } from 'react'
 import { useHistory , Link } from "react-router-dom"
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
@@ -10,13 +10,19 @@ import ListGroup from 'react-bootstrap/ListGroup'
 export default function Credit({ user, Login }) {
 
       const history = useHistory()
-
+    
       const logOut = () => {
             localStorage.removeItem("token")
             Login()
             history.push("/")
 
       }
+
+
+      const type = localStorage.getItem("type")
+
+
+
       return (
             <Container component="main" maxWidth="xs">
                   <div className="card user-detils">
@@ -24,7 +30,11 @@ export default function Credit({ user, Login }) {
                               <div className="col-lg-4 col-sm-6" data-aos="fade-up">
                                     <ul className="user-list">
                                           <h3 className="user-title">My Account</h3>
-                                          <a href="/Order"><li>My Orders</li></a>
+                                          {(type == "retailer" ? 
+                                                < Link to="/ItemPost"><li>Post Item</li></Link> :
+                                                <Link to="/Order"><li> My Orders</li></Link>
+                                                )}
+                                
                                  < Link to= "/MyAccount">
                                <li>My Profile</li></Link>
                                           <a href="/Credit"><li>Credit / Debit Cards</li></a>
