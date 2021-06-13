@@ -50,9 +50,6 @@ export default function Order({ user, Login }) {
               <a href="/Profile">
                 <li>My Profile</li>
               </a>
-              <a href="/Address">
-                <li>My Address Book</li>
-              </a>
               <a href="/Credit">
                 <li>Credit / Debit Cards</li>
               </a>
