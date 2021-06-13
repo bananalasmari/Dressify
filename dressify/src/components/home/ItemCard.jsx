@@ -14,16 +14,14 @@ export default function ItemCard() {
                                     <Card.Img variant="top" src="
                                    https://ounass-prod3.atgcdn.ae/small_light(dw=350,of=webp)/pub/media/catalog/product/2/1/214217820_black_in.jpg?1610642647.2564" />
                                     <Card.Body>
-                                          <Card.Title>Card Title</Card.Title>
+                                          <Card.Title>FENDI ROMA</Card.Title>
                                           <Card.Text>
-                                                Some quick example text to build on the card title and make up the bulk of
-                                                the card's content.
+                                               Elevate the casual wardrobe the Italian way with Fendi's Logo Sweatshirt. Made in Italy from cotton jersey,
                                                </Card.Text>
-
                                                <Card.Text className="item-price">
-                                                1.8000 SAR
+                                               4,250 SAR
                                                </Card.Text>
-                                          <Button variant="primary">More Info</Button>
+                                          <Button variant="primary" href="/items">More Info</Button>
                                     </Card.Body>
                               </Card>
                         </div>
@@ -31,15 +29,15 @@ export default function ItemCard() {
                         <div className="col-md-4 col-sm-6" data-aos="fade-up">
                               <Card>
                                     <Card.Img variant="top" src="
-                                   https://ounass-prod3.atgcdn.ae/small_light(dw=440,of=webp)/pub/media/catalog/product/2/1/214375608_pink_in.jpg?1615969145.6825" />
+                                   https://ounass-prod1.atgcdn.ae/small_light(p=zoom,of=webp,q=65)/pub/media/catalog/product/2/1/213451834_beige_in.jpg?1620489929.5265" />
                                     <Card.Body>
-                                          <Card.Title>Card Title</Card.Title>
+                                          <Card.Title>GUCCI</Card.Title>
                                           <Card.Text>
-                                                Some quick example text to build on the card title and make up the bulk of
-                                                the card's content.
+                                          This classic polo by Gucci will be a statement-making addition  gent's wardrobe.
+                                            The design reworks the House's signature GG.
                                                </Card.Text>
                                                <Card.Text className="item-price">
-                                                1.8000 SAR
+                                                3.900 SAR
                                                </Card.Text>
                                           <Button variant="primary">More Info</Button>
                                     </Card.Body>
@@ -51,13 +49,12 @@ export default function ItemCard() {
                                     <Card.Img variant="top" src="
                                     https://ounass-prod4.atgcdn.ae/small_light(dw=350,of=webp)/pub/media/catalog/product/2/1/214189659_lbl_in.jpg?1611161634.5771" />
                                     <Card.Body>
-                                          <Card.Title>Card Title</Card.Title>
+                                          <Card.Title>DOLCE & GABBANA</Card.Title>
                                           <Card.Text>
-                                                Some quick example text to build on the card title and make up the bulk of
-                                                the card's content.
+                                          Feminine and playful, this top by Dolce & Gabbana is a perfect example of the Italian label's spirit.Crafted in Italy from pure cotton with a camellia print,
                                                </Card.Text>
                                                <Card.Text className="item-price">
-                                                1.8000 SAR
+                                                2.800 SAR
                                                </Card.Text>
                                           <Button variant="primary">More Info</Button>
                                     </Card.Body>

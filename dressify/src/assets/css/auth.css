@@ -1,5 +1,9 @@
 
 
+a:hover {
+    color: #c1536b;
+    font-weight: bold;
+}
 .card-auth {
       margin: 20px;
       border-radius: 15px;
@@ -62,9 +66,7 @@ h5 {
      width: 90%;
  }
 
-.card-body {
-    text-align: center;
-}
+
  .auth-title {
       color: #c1536b;
       padding: 12px;

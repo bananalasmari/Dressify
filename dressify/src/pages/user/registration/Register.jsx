@@ -77,7 +77,7 @@ export default function Register() {
     console.log("hhhii")
     e.preventDefault()
     axios.post('http://localhost:4000/api/v1/user/', {
-      name: user.name, email: user.email, password: user.password, address: user.address
+      name: user.name, email: user.email, password: user.password, address: user.address, type: user.retailer
     }).then(data => {
       console.log(data)
       setFlage(true)
@@ -183,7 +183,24 @@ export default function Register() {
             onChange={(e) => userChangeHandler(e)} />
         </Form.Group>
 
-        
+        <Form.Group className="form-group">
+                <div className="custom-control custom-checkbox">
+                  <input
+                    type="checkbox"
+                    className="custom-control-input"
+                    id="customCheck1"
+                    name="type"
+                    value="retailer"
+                  />
+                  <label
+                    className="custom-control-label"
+                    htmlFor="customCheck1"
+                  >
+                    Retailer 
+                  </label>
+                </div>
+              </Form.Group>
+
         <Button variant="primary" type="submit" className="btn btn-primary btn-block">Sign Up</Button>
         <p className="forgot-password text-right">
           Already a member?! <a href="/login">Login</a>

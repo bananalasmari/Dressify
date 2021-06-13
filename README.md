@@ -1,9 +1,9 @@
 # Dressify
-![wireframe](/dressify/src/assets/logo.png)
+![wireframe](/dressify/src/assets/imges/logo.png)
 #### Developed With ❤️ by Fullstackers
 
 ## Project Discription
-#### E-commerce webiste BUY. SELL. DISCOVER UNIQUE FASHION Designers. Vintage, High Fashion Brands. 
+#### E-commerce site BUY. SELL. DISCOVER UNIQUE FASHION Designers. Vintage, High Fashion Brands. 
 
 ### Team Members:
 
@@ -13,6 +13,18 @@
 
 - Manal Alotaibi
 
+---
+
+
+## Browse Dressify:
+* [Dressify](https://dressify.herokuapp.com/)
+
+
+---
+
+
+## Back-end Development:
+* [Dressify-Backend](https://git.generalassemb.ly/xmaanall/Project-4-AUTH)
 
 ---
 
@@ -34,7 +46,7 @@
 * moqups used for designing the Wireframe
 
 ---
-## application architecture
+## Application architecture
 ### ER diagram
 
 ![ ](/dressify/src/assets/imges/Dressify-ERD.png)
@@ -62,11 +74,22 @@
 
 ---
 
-### Unsolved Problems
-```Python
-def quiz(request, title):
-    cat=Category.objects.get(title=title)
-    quiz=Quiz.objects.filter(category=cat)
-    return render(request,‘quizes/main.html’,{‘quiz’:quiz})
-    
-   ```
+## Screenshot of Dressify:
+
+![ ](/dressify/src/assets/imges/Dressify-1.png)
+![ ](/dressify/src/assets/imges/Dressify-2.png)
+![ ](/dressify/src/assets/imges/Dressify-3.png)
+
+---
+
+## List unsolved problems:
+
+* Categories filter
+* Search Bar
+* Review item
+* Rate items
+* Activate Mada, Visa payments method.
+
+
+---
+

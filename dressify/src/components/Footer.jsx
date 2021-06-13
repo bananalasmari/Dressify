@@ -23,7 +23,7 @@ export default function Footer () {
                         </ul>
                       </div>
                       <div className="col-md-4 col-sm-6">
-                       <h4>Top Categories</h4>
+                      <h4>Top Categories</h4>
                        <ul className="list-unstyled">
                          <li>Clothing</li>
                          <li>Shoes</li>
