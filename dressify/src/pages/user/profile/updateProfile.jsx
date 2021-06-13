@@ -1,17 +1,18 @@
 import React , {useState , useEffect} from 'react';
-​
-​
+
+
 import withReactContent from 'sweetalert2-react-content'
-​
-import Card from 'react-bootstrap/Card'git
-​
+
+import Card from 'react-bootstrap/Card'
+
+
 import "../../../assets/css/auth.css";
 import Form from 'react-bootstrap/Form';
-​
+
 import Button from 'react-bootstrap/Button';
 import axios from "axios";
 import FormControl from 'react-bootstrap/FormControl'
-​
+
 import 'react-toastify/dist/ReactToastify.css';
 import Container from 'react-bootstrap/Container';
 import {useHistory} from "react-router-dom";
@@ -24,9 +25,9 @@ import checkIcon from '../../../assets/check.svg';
 import errorIcon from '../../../assets/error.svg';
 import infoIcon from '../../../assets/info.svg';
 import warningIcon from '../../../assets/warning.svg'; 
-​
+
 import {useParams} from 'react-router-dom'
-​
+
 const useStyles = createUseStyles({
     success:{
       display: 'block',
@@ -59,8 +60,8 @@ const useStyles = createUseStyles({
     }
     })
 export default function UpdateProfile({user ,loginFunction , test }) {
-​
-​
+
+
   console.log(user)
   
   
@@ -68,7 +69,7 @@ export default function UpdateProfile({user ,loginFunction , test }) {
     localStorage.removeItem("token")
     loginFunction()
     history.push("/")
-​
+
 }
   
     const history = useHistory()
@@ -76,14 +77,14 @@ export default function UpdateProfile({user ,loginFunction , test }) {
     
     
     const {token} = useParams()
-​
+
       console.log(token)
    const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [email, setEmail] = useState('');
    
     const {userid} = useParams()
-​
+
    const [flage , setFlage]= useState(false)
   
     const [success ,setSuccess] = useState(false)
@@ -91,21 +92,21 @@ export default function UpdateProfile({user ,loginFunction , test }) {
     const [message ,setMessage] = useState("")
     
   
-​
-​
+
+
  
 console.log(user)
-​
+
 const data = localStorage.getItem("user_id")
 console.log(data)
-​
+
   
      const userOnsubmitHandler = (e)=>{
    
     
-​
+
       e.preventDefault()
-​
+
       axios.post('http://localhost:4000/api/v1/user/getUserDetails/' + data,
       {name  , email  , address })
       .then( data =>{
@@ -120,17 +121,17 @@ console.log(data)
       setFlage(true)
       setSuccess(false)
 console.log(err)
-​
-​
+
+
     })
      
   }
-​
+
   useEffect(() => {
     console.log(data)
     
   axios.get(`http://localhost:4000/api/v1/user/UserDetails/${data}`)
-​
+
     .then((data) => {
      setName(data.data.name);
    
@@ -145,8 +146,8 @@ console.log(err)
     return (
   
         
-​
-​
+
+
       <Container component="main" maxWidth="xs">
       { flage && 
       ( success ? <Toast className={classes.success} severity="success"  >{message} </Toast> : 
@@ -156,10 +157,10 @@ console.log(err)
     
     
             <div className="card card-post" data-aos="fade-up">
-​
-   <Form   onSubmit={(e) => userOnsubmitHandler(e)}>
+
+   <Form  onSubmit={(e) => userOnsubmitHandler(e)}>
      <Form.Group controlId="formBasicName1" >
-     <Form.Label>  </Form.Label>
+     <Form.Label>Name:</Form.Label>
      <FormControl 
      autoComplete="fname"
      name="name"
@@ -176,9 +177,9 @@ console.log(err)
           </FormControl>
      
      </Form.Group>
-​
+
    <Form.Group controlId="formBasicEmail1" >
-     <Form.Label> </Form.Label>
+     <Form.Label>Email:</Form.Label>
      <FormControl 
       variant="outlined"
       required
@@ -199,7 +200,7 @@ console.log(err)
  
   
    <Form.Group controlId="formGridAddress1">
- <Form.Label> </Form.Label>
+ <Form.Label>Address:</Form.Label>
  <FormControl placeholder="1234 Main St" 
   variant="outlined"
   margin="normal"
@@ -213,9 +214,9 @@ console.log(err)
   value={address}
   onChange={(e) => setAddress(e.target.value)}
     />
-​
+
 </Form.Group>
-​
+
 <Button className="btn-update" type="submit">Update Profile</Button>
    {/* <Button 
         onClick={()=> logOut()}
@@ -223,8 +224,8 @@ console.log(err)
  </Form>
  </div>
  </Container> 
-​
+
     )
-​
-​
+
+
     }
