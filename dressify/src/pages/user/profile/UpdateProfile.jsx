@@ -107,7 +107,7 @@ console.log(data)
 
       e.preventDefault()
 
-      axios.post('http://localhost:4000/api/v1/user/getUserDetails/' + data,
+      axios.post('/api/v1/user/getUserDetails/' + data,
       {name  , email  , address })
       .then( data =>{
       console.log(data)
