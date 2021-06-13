@@ -14,7 +14,7 @@ export default function ItemCard2(props) {
     }
     const addToCart = () => {
       axios
-      .post(`http://localhost:4000/api/cart/${userId}`, {
+      .post(`/api/cart/${userId}`, {
         productId: props.item._id,
         quantity: 1
       })

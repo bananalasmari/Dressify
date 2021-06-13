@@ -23,7 +23,7 @@ export default function ResetPassword() {
     e.preventDefault()
     console.log("click")
     console.log("user email: "+user.email )
-    axios.post('http://localhost:4000/api/v1/user/reset-password',{ "email" : user.email })
+    axios.post('/api/v1/user/reset-password',{ "email" : user.email })
     .then( data =>{
       console.log(data)
     

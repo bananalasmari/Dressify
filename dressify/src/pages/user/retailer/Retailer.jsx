@@ -68,7 +68,7 @@ export default function Retailer ({user ,loginFunction , test }) {
 useEffect(() => {
       console.log(id)
       
-    axios.get(`http://localhost:4000/api/v1/user/updateRetailer/${id}`)
+    axios.get(`/api/v1/user/updateRetailer/${id}`)
 
       .then((data) => {
        setName(data.data.name);
@@ -82,7 +82,7 @@ useEffect(() => {
 
 
       axios
-      .get(`http://localhost:4000/api/items/seller/${id}`)
+      .get(`/api/items/seller/${id}`)
       .then((data) => {
         setItems(data.data);
       })

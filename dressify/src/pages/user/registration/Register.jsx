@@ -70,14 +70,28 @@ export default function Register() {
   const userChangeHandler = (e) => {
     let name = e.target.name
     let value = e.target.value
+    
     setUser({ ...user, [name]: value })
   }
 
+
+  const CheckBoxHandler = (e) => {
+  
+    let name = e.target.name
+    let value = e.target.value
+    
+    setUser({ ...user, [name]: value })
+  }
+
+
+
+
   const userOnsubmitHandler = (e) => {
     console.log("hhhii")
+ 
     e.preventDefault()
-    axios.post('http://localhost:4000/api/v1/user/', {
-      name: user.name, email: user.email, password: user.password, address: user.address, type: user.retailer
+    axios.post('/api/v1/user/', {
+      name: user.name, email: user.email, password: user.password, address: user.address, type: user.type
     }).then(data => {
       console.log(data)
       setFlage(true)
@@ -87,12 +101,13 @@ export default function Register() {
       setTimeout(() => history.push('/login'), 2000)
     }).catch(error => {
       setMessage(error.response.data.message)
+
       setFlage(true)
       setSuccess(false)
-      console.log(error)
+      console.log(error.response.data.message)
     })
   }
-
+  console.log(user.type)
   const testList = [
     {
       id: 1,
@@ -191,12 +206,13 @@ export default function Register() {
                     id="customCheck1"
                     name="type"
                     value="retailer"
+                    onClick={(e) => CheckBoxHandler(e)}
                   />
                   <label
                     className="custom-control-label"
                     htmlFor="customCheck1"
                   >
-                    Retailer 
+                   Are you Retailer?
                   </label>
                 </div>
               </Form.Group>

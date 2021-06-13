@@ -21,7 +21,7 @@ export default function Checkout() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/api/cart/${userId}`)
+      .get(`/api/cart/${userId}`)
       .then((data) => {
         setItems(data.data);
       })
@@ -37,7 +37,7 @@ export default function Checkout() {
       
   const onSubmitHandler = (e) => {
       axios
-      .post(`http://localhost:4000/api/order/${userId}`)
+      .post(`/api/order/${userId}`)
       .then((data) => {
         console.log(data);
       })

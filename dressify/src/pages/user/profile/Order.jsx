@@ -18,7 +18,7 @@ export default function Order({ user, Login }) {
   const id = localStorage.getItem("user_id");
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/api/order/${id}`)
+      .get(`/api/order/${id}`)
       .then((data) => {
         setOrders(data.data);
       })

@@ -14,7 +14,7 @@ export default function OrderRow(props) {
   
   const handleDelete = () =>  {
     axios
-      .delete(`http://localhost:4000/api/order/${props.order._id}`)
+      .delete(`/api/order/${props.order._id}`)
       .then((data) => console.log(data))
       .catch((error) => console.log(error));  
       window.location.reload();  

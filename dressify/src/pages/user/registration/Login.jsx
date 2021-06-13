@@ -23,7 +23,7 @@ export default function Login(props) {
   const OnsubmitHandler = (e) => {
     e.preventDefault();
     console.log("click");
-    axios.post("http://localhost:4000/api/v1/user/login", {
+    axios.post("/api/v1/user/login", {
         email: user.email,
         password: user.password,
       })

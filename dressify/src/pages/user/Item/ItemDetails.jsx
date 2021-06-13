@@ -21,7 +21,7 @@ export default function ItemDetails(props) {
   
   const addToCart = () => {
     axios
-    .post(`http://localhost:4000/api/cart/${userId}`, {
+    .post(`/api/cart/${userId}`, {
       productId: itemId,
       quantity: qty.quantity
     })
@@ -31,7 +31,7 @@ export default function ItemDetails(props) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/api/items/${itemId}`)
+      .get(`/api/items/${itemId}`)
       .then((data) => {
         setItem(data.data);
       })

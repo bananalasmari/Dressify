@@ -34,7 +34,7 @@ export default function NewPassword(props) {
     console.log(token)
     console.log("click")
     console.log("password :"+ user.password)
-    axios.post('http://localhost:4000/api/v1/user/reset/'+ token ,{ 
+    axios.post('/api/v1/user/reset/'+ token ,{ 
         "password" : user.password })
     
     

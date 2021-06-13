@@ -13,7 +13,7 @@ export default function EditItem(props) {
 
     useEffect(() => {
         axios
-          .get(`http://localhost:4000/api/items/${itemId}`)
+          .get(`/api/items/${itemId}`)
           .then((data) => {
             setItem(data.data);
           })
@@ -34,7 +34,7 @@ export default function EditItem(props) {
       else{
       e.preventDefault();
         axios
-          .put(`http://localhost:4000/api/items/${itemId}`, {
+          .put(`/api/items/${itemId}`, {
             title: item.title,
             description: item.description,
             style: item.style,

@@ -130,7 +130,7 @@ console.log(err)
   useEffect(() => {
     console.log(data)
     
-  axios.get(`http://localhost:4000/api/v1/user/UserDetails/${data}`)
+  axios.get(`/api/v1/user/UserDetails/${data}`)
 
     .then((data) => {
      setName(data.data.name);

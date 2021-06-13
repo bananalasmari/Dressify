@@ -113,7 +113,7 @@ export default function UpdateRetailer(props) {
 
     e.preventDefault()
 
-    axios.post('http://localhost:4000/api/v1/user/updateRetailer/' + Userid,
+    axios.post('/api/v1/user/updateRetailer/' + Userid,
       { name, email, address, Image })
 
       .then(data => {
@@ -150,7 +150,7 @@ export default function UpdateRetailer(props) {
     console.log(id)
     console.log("manal saud alotaibi")
 
-    axios.get(`http://localhost:4000/api/v1/user/updateRetailer/${id}`)
+    axios.get(`/api/v1/user/updateRetailer/${id}`)
 
       .then((data) => {
         setName(data.data.name);

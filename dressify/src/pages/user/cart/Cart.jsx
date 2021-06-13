@@ -12,7 +12,7 @@ export default function Cart() {
   
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/api/cart/${userId}`)
+      .get(`/api/cart/${userId}`)
       .then((data) => {
         setItems(data.data);
       })
@@ -31,7 +31,7 @@ export default function Cart() {
     
   const onClickEmpty = () => {
     axios
-    .delete(`http://localhost:4000/api/cart/${userId}`)
+    .delete(`/api/cart/${userId}`)
     .then((data) => console.log(data))
     .catch((error) => console.error(error));
     window.location.reload(); 
