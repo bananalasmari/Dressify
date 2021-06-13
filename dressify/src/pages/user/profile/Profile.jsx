@@ -22,6 +22,7 @@ export default function Profile(props) {
       const [name, setName] = useState('');
       const [address, setAddress] = useState('');
       const [email, setEmail] = useState('');
+      const [type, setType] = useState('');
 
       // const {token} = useParams()
       // console.log(token)
@@ -40,6 +41,7 @@ export default function Profile(props) {
                         setName(data.data.name);
                         setAddress(data.data.address);
                         setEmail(data.data.email);
+                        setType(data.data.type);
                         //  userDetail(data.data);
                   })
                   .catch((error) => console.error(error));
@@ -63,10 +65,12 @@ export default function Profile(props) {
                               <div className="col-lg-4 col-sm-6" data-aos="fade-up">
                                     <ul className="user-list">
                                           <h3 className="user-title">My Account</h3>
-                                          <a href="/Order"><li> My Orders</li></a>
-                                          < Link to="/MyAccount">
-                                                <li>My Profile</li></Link>
-
+                                          {(type == "retailer" ? 
+                                                < Link href="/itempost"><li>Post Item</li></Link> :
+                                                <Link href="/Order"><li> My Orders</li></Link>
+                                                )}
+                                          
+                                          < Link to="/MyAccount"><li>My Profile</li></Link>
                                           <a href="/Credit"><li>Credit / Debit Cards</li></a>
                                     </ul>
                               </div>

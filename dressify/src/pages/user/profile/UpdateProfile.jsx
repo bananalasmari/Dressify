@@ -157,6 +157,7 @@ console.log(err)
     
     
             <div className="card card-post" data-aos="fade-up">
+            <span class="card-title">Update Profile details:</span>
 
    <Form   onSubmit={(e) => userOnsubmitHandler(e)}>
      <Form.Group controlId="formBasicName1" >

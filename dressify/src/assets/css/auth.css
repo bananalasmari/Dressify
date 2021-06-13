@@ -1,5 +1,9 @@
 
 
+a:hover {
+    color: #c1536b;
+    font-weight: bold;
+}
 .card-auth {
       margin: 20px;
       border-radius: 15px;

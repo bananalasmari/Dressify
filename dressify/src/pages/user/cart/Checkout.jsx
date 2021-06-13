@@ -53,7 +53,7 @@ export default function Checkout() {
               <h3 className="user-title">My Cart</h3>
               <p>Order Summary</p>
               <Table striped bordered hover>
-                <thead>
+                <thead style={{backgroundColor: '#a87a63'}}>
                   <tr>
                     <th>#</th>
                     <th>Product</th>
@@ -118,7 +118,7 @@ export default function Checkout() {
                 <Form  onSubmit={(e) => onSubmitHandler(e)}>
                   <Card style={{ padding: 12 }}>
                     <Card.Text>
-                      <p>Cash on Delivery</p>
+                      <p style={{color: "black"}}>Cash on Delivery</p>
                     </Card.Text>
                     <Card.Text>
                       Please note: In case of Returns, we will refund via an

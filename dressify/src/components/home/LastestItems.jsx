@@ -11,6 +11,7 @@ export default function LastestItems() {
       return (
             <div className="container b-widget--background">
                   <div className="row">
+                        <a href="/items">
                         <Carousel fade data-aos="fade-up">
                               <Carousel.Item interval={1000}>
                                     <img
@@ -26,6 +27,7 @@ export default function LastestItems() {
                                           alt="Second slide"/>
                               </Carousel.Item>
                         </Carousel>
+                        </a>
                   </div>
             </div>
 

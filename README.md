@@ -3,7 +3,7 @@
 #### Developed With ❤️ by Fullstackers
 
 ## Project Discription
-#### E-commerce webiste BUY. SELL. DISCOVER UNIQUE FASHION Designers. Vintage, High Fashion Brands. 
+#### E-commerce site BUY. SELL. DISCOVER UNIQUE FASHION Designers. Vintage, High Fashion Brands. 
 
 ### Team Members:
 
@@ -17,7 +17,7 @@
 
 
 ## Browse Dressify:
-* [Dressify]()
+* [Dressify](https://dressify.herokuapp.com/)
 
 
 ---
