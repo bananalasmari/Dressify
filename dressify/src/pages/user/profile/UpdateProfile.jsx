@@ -107,7 +107,7 @@ console.log(data)
 
       e.preventDefault()
 
-      axios.post('/api/v1/user/getUserDetails/' + data,
+      axios.post('http://localhost:4000/api/v1/user/getUserDetails/' + data,
       {name  , email  , address })
       .then( data =>{
       console.log(data)
@@ -130,7 +130,7 @@ console.log(err)
   useEffect(() => {
     console.log(data)
     
-  axios.get(`/api/v1/user/UserDetails/${data}`)
+  axios.get(`http://localhost:4000/api/v1/user/UserDetails/${data}`)
 
     .then((data) => {
      setName(data.data.name);

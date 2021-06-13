@@ -7,7 +7,7 @@ export default function ItemsSeller() {
   const id = localStorage.getItem("user_id")
   useEffect(() => {
     axios
-      .get(`/api/items/seller/${id}`)
+      .get(`http://localhost:4000/api/items/seller/${id}`)
       .then((data) => {
         setItems(data.data);
       })

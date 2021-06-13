@@ -90,7 +90,7 @@ export default function Register() {
     console.log("hhhii")
  
     e.preventDefault()
-    axios.post('/api/v1/user/', {
+    axios.post('http://localhost:4000/api/v1/user/', {
       name: user.name, email: user.email, password: user.password, address: user.address, 
       // type: user.type
     }).then(data => {

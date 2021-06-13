@@ -12,7 +12,7 @@ export default function ItemDetails(props) {
 
   useEffect(() => {
     axios
-      .get("/api/items")
+      .get("http://localhost:4000/api/items")
       .then((data) => {
         setItems(data.data);
       })

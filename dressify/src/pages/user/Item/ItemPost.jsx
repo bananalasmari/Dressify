@@ -29,7 +29,7 @@ export default function ItemPost() {
       else{
       e.preventDefault();
       axios
-      .post("/api/additem", {
+      .post("http://localhost:4000/api/additem", {
         title: item.title,
         description: item.description,
         style: item.style,
