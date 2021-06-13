@@ -91,7 +91,8 @@ export default function Register() {
  
     e.preventDefault()
     axios.post('/api/v1/user/', {
-      name: user.name, email: user.email, password: user.password, address: user.address, type: user.type
+      name: user.name, email: user.email, password: user.password, address: user.address, 
+      // type: user.type
     }).then(data => {
       console.log(data)
       setFlage(true)
