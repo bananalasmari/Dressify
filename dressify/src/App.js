@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 import Home from "./components/home/Home";
 import Profile from "./pages/user/profile/Profile";
 
-import UpdateProfile from "/Users/manal/Desktop/SEI/projects/Project-4/dressify/src/pages/user/profile/updateProfile.jsx";
+import UpdateProfile from "../src/pages/user/profile/UpdateProfile";
 
 import Order from "./pages/user/profile/Order";
 import Credit from "./pages/user/profile/Credit";
