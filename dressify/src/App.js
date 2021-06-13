@@ -6,7 +6,9 @@ import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import Home from "./components/home/Home";
 import Profile from "./pages/user/profile/Profile";
-import UpdateProfile from "./pages/user/profile/updateProfile";
+
+import UpdateProfile from "../src/pages/user/profile/UpdateProfile";
+
 import Order from "./pages/user/profile/Order";
 import Credit from "./pages/user/profile/Credit";
 import ItemPost from "./pages/user/Item/ItemPost";
@@ -58,7 +60,7 @@ function App() {
   return (
     <BrowserRouter>
       
-        <Navigation isLogin={isLogin}/>
+        <Navigation isLogin={isLogin} loginFunction={loginFunction}/>
         
             <Switch>
             <Route exact path="/" component={Home} />
@@ -67,9 +69,9 @@ function App() {
                 path="/login"
                 render={() => <Login loginFunction={loginFunction} />}
               />
-              <Route  component={Register} path="/signIn"  />
+              <Route component={Register} path="/signIn"  />
               <Route component={Profile} path={"/MyAccount"} />
-              <Protect component={UpdateProfile} path={"/update/:id"} isLogin ={isLogin} user={user} loginFunction={loginFunction}/>
+              <Route component={UpdateProfile} path={"/update/:id"} isLogin ={isLogin} user={user} loginFunction={loginFunction}/>
               <Route component={Order} path={"/Order"} />
               <Route component={Credit} path={"/Credit"} />
               <Route component={ItemPost} path={"/ItemPost"} />
@@ -81,7 +83,7 @@ function App() {
               <Route component={updateRetailer} path={"/updateRetailer"} />
               <Route component={Cart} path={"/Cart"}/>
               <Route component={Checkout} path={"/Checkout"}/>
-
+              
       
 
               <Route path="/ResetPassword" component={ResetPassword} />

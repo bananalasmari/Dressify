@@ -4,8 +4,9 @@ import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 import "../../../assets/css/profile.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useParams } from 'react-router-dom'
-import updadeProfile from "./updateProfile.jsx";
+import {useParams} from 'react-router-dom'
+import updadeProfile from "./UpdateProfile";
+
 import axios from "axios";
 
 

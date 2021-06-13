@@ -1,6 +1,12 @@
 import React , {useState , useEffect} from 'react';
 
 
+import withReactContent from 'sweetalert2-react-content'
+
+import Card from 'react-bootstrap/Card'
+
+
+import "../../../assets/css/auth.css";
 import Form from 'react-bootstrap/Form';
 
 import Button from 'react-bootstrap/Button';
@@ -21,18 +27,6 @@ import infoIcon from '../../../assets/info.svg';
 import warningIcon from '../../../assets/warning.svg'; 
 
 import {useParams} from 'react-router-dom'
-import style from './style.css'
-
-
-
-
-
-
-
-  
-
-
-
 
 const useStyles = createUseStyles({
     success:{
@@ -65,132 +59,106 @@ const useStyles = createUseStyles({
     
     }
     })
-export default function UpdateRetailer(props) {
+export default function UpdateProfile({user ,loginFunction , test }) {
 
-  const history = useHistory()
-  const classes = useStyles();
+
+  console.log(user)
   
- 
+  
+  const logOut = () => {
+    localStorage.removeItem("token")
+    loginFunction()
+    history.push("/")
 
-   
+}
+  
+    const history = useHistory()
+    const classes = useStyles();
     
-  const [flage, setFlage] = useState(false)
+    
+    const {token} = useParams()
 
-  const [success, setSuccess] = useState(false)
-  // const [show, setShow] = useState(false);
-  const [message, setMessage] = useState("")
-   
-  
-
-const [User, setUser] = useState('');
+      console.log(token)
    const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [email, setEmail] = useState('');
-  const [Image, setImage] = useState([]);
-  const [bio, setBio] = useState('');
    
- 
+    const {userid} = useParams()
 
-  //  const [flage , setFlage]= useState(false)
+   const [flage , setFlage]= useState(false)
   
-  //   const [success ,setSuccess] = useState(false)
+    const [success ,setSuccess] = useState(false)
     // const [show, setShow] = useState(false);
-  
+    const [message ,setMessage] = useState("")
     
   
 
-  
 
+ 
+console.log(user)
 
-const Userid = localStorage.getItem("user_id")
-console.log(Userid)
+const data = localStorage.getItem("user_id")
+console.log(data)
 
-
-
-const [items, setItems] = useState([]);
   
      const userOnsubmitHandler = (e)=>{
    
-      e.preventDefault()
-     
-      axios.post('http://localhost:4000/api/v1/user/updateRetailer/' + Userid, 
-      {name  , email  , address , Image})
     
-      .then( data =>{
-      
-        setFlage(true)
-        setMessage(data.data.message)
-        setSuccess(true)
-        console.log("crashinggg")
-      console.log(data)
 
-      // localStorage.setItem("token", token)
-      history.push('/MyAccount')
-      // loginFunction()
-    //   history.push("/")
-      // localStorage.setItem("token",data.data.token)
+      e.preventDefault()
+
+      axios.post('http://localhost:4000/api/v1/user/getUserDetails/' + data,
+      {name  , email  , address })
+      .then( data =>{
+      console.log(data)
+      setFlage(true)
+      setMessage(data.data.message)
+      setSuccess(true)
+      setTimeout(() => history.push('/MyAccount'), 2000)
+      // history.push('')
     }).catch(err=>{
+      setMessage(err.response.data.message)
+      setFlage(true)
+      setSuccess(false)
 console.log(err)
-setMessage(err.response.data.message)
-setFlage(true)
-setSuccess(false)
-console.log(err)
+
 
     })
      
   }
 
+  useEffect(() => {
+    console.log(data)
+    
+  axios.get(`http://localhost:4000/api/v1/user/UserDetails/${data}`)
 
-
-
-  const id = localStorage.getItem("user_id")
-
+    .then((data) => {
+     setName(data.data.name);
+   
+     setAddress(data.data.address);
+     setEmail(data.data.email);
+    //  userDetail(data.data);
+    })
+    .catch((error) => console.error(error));
+}, []);
+   
   
-useEffect(() => {
-    console.log(id)
-    console.log("manal saud alotaibi")
-      
-    axios.get(`http://localhost:4000/api/v1/user/updateRetailer/${id}`)
-
-      .then((data) => {
-       setName(data.data.name);
-     
-      setImage(data.data.Image)
-       console.log(data.data.Image)
-       setAddress(data.data.address);
-       setEmail(data.data.email);
-      
-      //  userDetail(data.data);
-      })
- 
-}, [])
-
-
-
     return (
-
+  
         
-     <Container component="main" maxWidth="xs">
+
+
+      <Container component="main" maxWidth="xs">
       { flage && 
-      ( success ? <Toast className={classes.success} severity="success" autoClose={5000}  >{message}</Toast> : 
+      ( success ? <Toast className={classes.success} severity="success"  >{message} </Toast> : 
     <Toast className={classes.danger} severity="error">{message}</Toast> )
  } 
       
-      
-     
+    
+    
+            <div className="card card-post" data-aos="fade-up">
 
-
-      <div className="card card-post" data-aos="fade-up">
-
-   <Form   onSubmit={(e) => userOnsubmitHandler(e)} >
-       
- 
-
-   <Form.Group>
-          <Form.Control type="text" name="image" placeholder="Enter Profile link"    onChange={(e) => setImage(e.target.value)}/>
-          {/* onChange={(e) => itemChangeHandler(e)} */}
-          </Form.Group>
-       
+   <Form   onSubmit={(e) => userOnsubmitHandler(e)}>
      <Form.Group controlId="formBasicName1" >
      <Form.Label>  </Form.Label>
      <FormControl 
@@ -202,9 +170,8 @@ useEffect(() => {
      id="firstName"
      label=" Name"
      autoFocus
-    
-    value={name}
-    onChange={(e) => setName(e.target.value)}
+     value={name}
+     onChange={(e) => setName(e.target.value)}
   >
         
           </FormControl>
@@ -250,9 +217,7 @@ useEffect(() => {
 
 </Form.Group>
 
-   <Button variant="primary" type="submit"  >
-    update
-   </Button>
+<Button className="btn-update" type="submit">Update Profile</Button>
    {/* <Button 
         onClick={()=> logOut()}
       variant="outlined">log Out </Button> */}
@@ -264,4 +229,3 @@ useEffect(() => {
 
 
     }
-

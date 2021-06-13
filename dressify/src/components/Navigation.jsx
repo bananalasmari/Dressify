@@ -19,7 +19,7 @@ export default function Navigation(props, loginFunction) {
 
    const logOut = () => {
       localStorage.removeItem("token")
-      loginFunction()
+      props.loginFunction()
       history.push("/")
 
    }
