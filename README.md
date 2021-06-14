@@ -41,7 +41,6 @@
 * Ajax
 * MongoDB
 * AOS
-* sweetalert2
 * @fortawesome
 * moqups used for designing the Wireframe
 
