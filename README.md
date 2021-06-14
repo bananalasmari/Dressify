@@ -82,6 +82,18 @@
 
 ---
 
+### Catalog of Routes
+Verb         |  URI Pattern
+------------ | -------------
+GET    | /cart
+GET    | /item/:id
+GET    | /cart/:id
+POST   | /item
+GET    | /cart/:id
+DELETE | /item/:id
+
+---
+
 ## List unsolved problems:
 
 * Categories filter
@@ -93,3 +105,24 @@
 
 ---
 
+---
+
+### Installation instructions:
+
+```bash
+# Fork and Clone the project
+    $ git clone < git url>
+    $ cd <cloned folder name>
+    $ git remote add origin < git url>
+
+# Get the latest version from the repo
+    $ git remote add upstream < git url>
+    $ git pull upstream master
+
+# Start the project
+    $ npm i # install The depencises
+    $ npm start # To run the server
+
+```
+
+---
