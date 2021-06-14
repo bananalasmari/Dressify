@@ -107,7 +107,7 @@ DELETE | /Cart:id
 
 ---
 
-## List unsolved problems:
+## Feature to add:
 
 * Categories filter
 * Search Bar
