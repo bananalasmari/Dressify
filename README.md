@@ -88,9 +88,22 @@ Verb         |  URI Pattern
 GET    | /cart
 GET    | /item/:id
 GET    | /cart/:id
+GET    | /Order:id
+GET    | /item/Seller:is
+GET    | /getUserDetails/:id
+GET    | /updateRetailer/:id
+POST   | /
+POST   | /login
+POST   | /restpassword
 POST   | /item
-GET    | /cart/:id
+POST   | /additem
+POST   | /Order
+POST   | /Cart:id
+POST   | /getUserDetails/:id
+POST   | /updateRetailer/:id
 DELETE | /item/:id
+DELETE | /Order: id
+DELETE | /Cart:id
 
 ---
 
